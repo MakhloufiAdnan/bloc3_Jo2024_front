@@ -1,2 +1,10 @@
-$black:rgba(255, 255, 255, 0) 0%;
-$gray:  rgba(153, 153, 153, 0.3) 100%;
+$black:rgba(0, 0, 0, 0);
+$black-light: rgba(0, 0, 0, 0.75);
+$white: rgba(255, 255, 255, 1);
+$grey:  rgba(153, 153, 153, .5);
+$shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.5);
+$footer: rgba(45, 44, 44, .9);
+$primary: rgba(215, 195, 120, 1);
+
+$secondary: conic-gradient(white 25%, grey 85%, black 100%); //couleur conique
+

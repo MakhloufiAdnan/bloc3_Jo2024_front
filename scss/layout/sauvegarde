@@ -1,0 +1,152 @@
+.header-menu-desktop {
+  padding: 1.5rem 4.5rem;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  justify-content: space-between;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(153, 153, 153, 0.3) 100%
+  );
+  .box-logo-move{
+    display: flex;
+    .box-logo {
+      height: auto;
+      width: 11.5rem;
+      overflow: hidden;
+  
+      .logo-JO {
+        display: block;
+        object-fit: cover;
+        transition: opacity 0.5s ease;
+      }
+    }
+    .anneaux{
+      display:flex;
+      align-items: self-start;
+      gap: 1rem;
+      opacity: 0;
+      left: 0; 
+      animation: moveX 3s ease-in-out;
+  
+      .ellipse{
+        display: block;
+        padding: 10rem 0 0 0;
+        left: 0;
+      }
+    }
+  
+    @keyframes moveX {
+      0% {
+        left: 0;
+        opacity: 1;
+      }
+      50% {
+        left: 80%; 
+        opacity: 1;
+      }
+      100% {
+        left: 100%; 
+        opacity: 0; 
+      }
+  }
+  
+  }
+
+  .box-menu {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1rem;
+    align-self: stretch;
+    flex: 0 0 auto;
+
+    .box-search-icons{
+      flex: 0 0 auto;
+      flex-grow: 1;
+      display: inline-flex;
+      max-width: 60rem;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4rem;
+      padding: 1rem 1.5rem;
+      max-width: 100%;
+
+      .search-bar{
+        display: flex;
+        width: 48rem;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding: .5rem;
+        background-color: #ffffff;
+        border-radius: .5rem;
+        overflow: hidden;
+
+        .div-search{
+          display: block;
+          align-self: stretch;
+          flex-grow: 1;
+          background-color: #e1dede;
+          border-radius: .5rem;
+        }
+
+        .icon-search{
+          display: block;
+          flex-grow: 1;
+          height: 2.5rem;
+        }
+      }
+
+      .icones-top{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+        align-self: stretch;
+        flex: 0 0 auto;
+
+        .icon{
+          display: block;
+        }
+      }
+    }
+    .section{
+      display: inline-flex;
+      align-items: center;
+      gap: 6rem;
+      padding: .5rem 1rem;
+      flex: 0 0 auto;
+
+      .text-wrapper {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        white-space: nowrap;
+      }
+    }
+  }
+  
+
+  &:hover .logo-JO {
+    opacity: 0;
+  }
+
+  &:hover .anneaux {
+    opacity: 1;
+  }
+
+  &:hover::after {
+    content: url('/Photos/logo-etat-2.svg');
+    position: absolute;
+    padding: 3rem 4.5rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+}

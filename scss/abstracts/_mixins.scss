@@ -1,0 +1,10 @@
+// Mixin pour gérer les media queries
+@mixin respond-to($device) {
+  @if map-has-key($breakpoints, $device) {
+    @media (min-width: map-get($breakpoints, $device)) {
+      @content;
+    }
+  } @else {
+    @warn "Ce breakpoint n'existe pas : #{$device}";
+  }
+}

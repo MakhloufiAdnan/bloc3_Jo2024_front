@@ -1,5 +1,4 @@
 // Réinitialiser les marges, les espacements et les bordures de tous les éléments
-
 *,
 *::before,
 *::after {
@@ -11,8 +10,6 @@
 // Réinitialiser les styles des éléments de base
 html, body {
   font-size: 100%;
-  line-height: 1.5;
-  font-family: Arial, sans-serif;
 }
 
 // Supprimer les bordures et l'espacement pour les éléments de formulaire

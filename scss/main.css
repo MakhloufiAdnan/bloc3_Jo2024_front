@@ -8,8 +8,6 @@
 
 html, body {
   font-size: 100%;
-  line-height: 1.5;
-  font-family: Arial, sans-serif;
 }
 
 input, textarea, select, button {
@@ -65,33 +63,63 @@ button {
 body {
   font-family: "Fraunces-SemiBold", Arial, Helvetica, sans-serif;
   font-weight: bold;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .container-footer .icons {
+    justify-content: center;
+  }
+}
+@media (min-width: 768px) {
+  .container-footer .icons .icon {
+    margin: 0.5rem 1.5rem 0.5rem 1.5rem;
+  }
 }
 
 .header-menu-desktop {
-  position: relative;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  padding: 1.5rem 4.5rem;
   display: flex;
-  align-items: center;
+  max-width: 100%;
   justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4.5rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(153, 153, 153, 0.3) 100%);
 }
-.header-menu-desktop .box-logo {
-  height: auto;
-  width: 11.5rem;
+.header-menu-desktop .container-logo-move {
+  display: block;
+  flex: 1;
+}
+.header-menu-desktop .container-logo-move .box-logo {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
   overflow: hidden;
 }
-.header-menu-desktop .box-logo .logo-JO {
-  width: 100%;
-  height: 100%;
+.header-menu-desktop .container-logo-move .box-logo .logo-JO {
+  width: 10rem;
   -o-object-fit: cover;
      object-fit: cover;
   transition: opacity 0.5s ease;
 }
+.header-menu-desktop .container-logo-move .box-logo .anneaux {
+  display: flex;
+  align-items: flex-end;
+  left: -300px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: transform 0.5s ease-in-out;
+}
+.header-menu-desktop .container-logo-move .box-logo .anneaux .ellipse {
+  margin-right: 0.5rem;
+  width: 2rem;
+}
 .header-menu-desktop:hover .logo-JO {
   opacity: 0;
+}
+.header-menu-desktop:hover .anneaux {
+  animation: moveX 0.5s linear forwards;
 }
 .header-menu-desktop:hover::after {
   content: url("/Photos/logo-etat-2.svg");
@@ -106,74 +134,137 @@ body {
   opacity: 1;
   transition: opacity 0.5s ease;
 }
-.header-menu-desktop .anneaux {
-  display: flex;
-  gap: 1rem;
-  padding: 0 85rem 0 0;
-  opacity: 0;
+@keyframes moveX {
+  0% {
+    left: -100px;
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
 }
-.header-menu-desktop .anneaux .ellipse {
-  padding: 10rem 0 0 0;
-}
-.header-menu-desktop .box-menu {
+.header-menu-desktop .container-nav .box-menu {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
   gap: 1rem;
-  align-self: stretch;
-  flex: 0 0 auto;
 }
-.header-menu-desktop .box-menu .box-search-icons {
-  flex: 0 0 auto;
+.header-menu-desktop .container-nav .box-menu .box-search-icons {
   flex-grow: 1;
   display: inline-flex;
-  max-width: 60rem;
   align-items: center;
   justify-content: flex-end;
-  gap: 4rem;
-  padding: 1rem 1.5rem;
+  gap: 2rem;
+  padding: 1rem 0;
 }
-.header-menu-desktop .box-menu .box-search-icons .search-bar {
+.header-menu-desktop .container-nav .box-menu .box-search-icons .search-bar {
   display: flex;
-  width: 48rem;
+  width: 30rem;
   align-items: center;
   justify-content: center;
   gap: 1rem;
   padding: 0.5rem;
-  background-color: #ffffff;
+  background-color: rgb(255, 255, 255);
   border-radius: 0.5rem;
   overflow: hidden;
 }
-.header-menu-desktop .box-menu .box-search-icons .search-bar .div-search {
-  flex: 1;
+.header-menu-desktop .container-nav .box-menu .box-search-icons .search-bar .div-search {
+  display: block;
   align-self: stretch;
   flex-grow: 1;
-  background-color: #e1dede;
+  background-color: rgba(153, 153, 153, 0.5);
   border-radius: 0.5rem;
 }
-.header-menu-desktop .box-menu .box-search-icons .search-bar .icon-search {
-  flex: 1;
+.header-menu-desktop .container-nav .box-menu .box-search-icons .search-bar .icon-search {
+  display: block;
   flex-grow: 1;
-  height: 2.5rem;
+  height: 2rem;
 }
-.header-menu-desktop .box-menu .box-search-icons .icones-top {
+.header-menu-desktop .container-nav .box-menu .box-search-icons .icones-top {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
+  gap: 2rem;
   align-self: stretch;
   flex: 0 0 auto;
 }
-.header-menu-desktop .box-menu .section {
+.header-menu-desktop .container-nav .box-menu .box-search-icons .icones-top .icon {
+  display: block;
+  height: 2rem;
+}
+.header-menu-desktop .container-nav .box-menu .nav-bar {
   display: inline-flex;
   align-items: center;
-  gap: 6rem;
-  padding: 0.5rem 1rem;
-  flex: 0 0 auto;
+  justify-content: flex-end;
+  gap: 2rem;
+  padding: 1rem 0;
 }
-.header-menu-desktop .box-menu .section .text-wrapper {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  white-space: nowrap;
+.header-menu-desktop .container-nav .box-menu .nav-bar .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-menu-desktop .container-nav .box-menu .nav-bar .nav-item .icon-nav {
+  opacity: 0;
+  height: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition-delay: 0.5s;
+}
+.header-menu-desktop .container-nav .box-menu .nav-bar .nav-item .text-wrapper {
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+}
+.header-menu-desktop:hover .icon-nav {
+  opacity: 1 !important;
+  height: 4rem !important;
+  transform: translateY(0) !important;
+  pointer-events: auto;
+}
+
+.container-footer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(45, 44, 44, 0.9);
+  color: white;
+  text-align: center;
+  box-shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.container-footer .icons {
+  display: flex;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+}
+.container-footer .icons .icon {
+  height: auto;
+  width: 100%;
+  max-width: 50px;
+  margin: 0.5rem;
+}
+.container-footer .rgpd {
+  z-index: 2;
+  margin: 0.5rem;
+  font-size: 0.5rem;
+}
+.container-footer .rgpd .rgpd-link {
+  margin: 0.5rem;
+}
+.container-footer .copy-right {
+  z-index: 2;
+  font-size: 0.5rem;
+  margin: 0.5rem;
 }/*# sourceMappingURL=main.css.map */

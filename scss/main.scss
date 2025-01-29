@@ -2,7 +2,6 @@
   'abstracts/variables',
   'abstracts/functions',
   'abstracts/mixins',
-  'abstracts/media-queries',
   'abstracts/colors',
   'abstracts/placeholders';
 
@@ -19,6 +18,7 @@
 @import
   'layout/navigation',
   'layout/grid',
+  'layout/media-queries',
   'layout/header',
   'layout/footer',
   'layout/sidebar',
