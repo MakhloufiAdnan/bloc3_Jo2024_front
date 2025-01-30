@@ -1,0 +1,33 @@
+.form-group{
+    background-color: $grey;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: $shadow;
+  
+    .form{
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      font-size: .75rem;
+      margin:  .75rem .75rem .75rem 0;
+      @include respond-to(tablet) {
+        font-size: 1rem;
+      }
+  
+      input, textarea{
+        margin: .75rem;
+        padding: .25rem;
+        border: 1px solid $black;
+        border-radius: 5px;
+        background-color: $grey;
+        width: 100%;
+  
+        &:focus{
+          outline: none;
+          border: 1px solid $primary;
+        }
+      }
+    }
+  }

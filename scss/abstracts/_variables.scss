@@ -5,6 +5,9 @@ $breakpoints: (
 );
 
 // Variable temps animation
-
 $transition-duration: .5s;
 
+// Variables pour la configuration du menu
+$burger-size: 30px;
+$menu-height: 0; 
+$menu-max-height: 400px;  

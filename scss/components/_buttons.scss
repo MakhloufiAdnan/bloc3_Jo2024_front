@@ -1,12 +1,15 @@
 .box-icons {
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
   position: relative;
+  padding-left: .5rem;
 
   .icons-top {
     display: flex;
-    gap: 2rem;
+    justify-content: space-around;
+    width: 100%;
     z-index: 2;
 
     .icon-top {
@@ -26,6 +29,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
+    width: 100%;
     visibility: hidden;
     pointer-events: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -52,7 +56,7 @@
     }
 
     .hover-text {
-      display: inline-flex;
+      display:flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;

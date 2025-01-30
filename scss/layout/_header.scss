@@ -1,9 +1,7 @@
 .header-menu-desktop {
-  display: flex;
-  max-width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 4.5rem .5rem 4.5rem;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 1rem 4.5rem 1.5rem 4.5rem;
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0) 0%,
@@ -87,30 +85,32 @@
   // animation nav bar et icons
 
   .container-nav {
+    overflow: hidden;
+
     .box-menu {
-      display: inline-flex;
+      display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
 
       .box-search-icons {
-        flex-grow: 1;
-        display: inline-flex;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        width: 100%;
+        padding-top: 2.5rem;
         justify-content: flex-end;
-        gap: 3rem;
-        padding: 2rem 0;
+        align-items: center;
 
         .search-bar{
           display: flex;
-          width: 20rem;
+          width: 100%;
           align-items: center;
           justify-content: center;
           gap: 1rem;
           padding: .5rem;
           background-color: $white;
           border-radius: .5rem;
-          overflow: hidden;
   
           .div-search{
             display: block;
@@ -129,12 +129,13 @@
       }
 
       .nav-bar {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         justify-content: flex-end;
+        width: 100%;
         gap: 2rem;
-        padding: 1rem 0;
-      
+        padding: 3rem 0 0 0;
+
         .nav-item {
           display: flex;
           flex-direction: column;
@@ -144,6 +145,7 @@
             opacity: 0; 
             height: 0;
             transform: translateY(20px); 
+            transform: scale(0.5);
             transition: opacity $transition-duration ease-in, transform $transition-duration ease;
             transition-delay: $transition-duration;
           }
@@ -157,6 +159,7 @@
   }
   
   &:hover .icon-nav{
+    scale: .8;
     opacity: 1 !important;
     height: 4rem !important;
     transform: translateY(0) !important;
