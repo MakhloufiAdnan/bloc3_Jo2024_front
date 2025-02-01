@@ -1,13 +1,7 @@
-// les breakpoints
-$breakpoints: (
-  tablet: 768px,
-  desktop: 1024px
-);
-
 // Variable temps animation
 $transition-duration: .5s;
 
 // Variables pour la configuration du menu
-$burger-size: 30px;
+$burger-size: 1rem;
 $menu-height: 0; 
-$menu-max-height: 400px;  
+$menu-max-height: 1000px;  

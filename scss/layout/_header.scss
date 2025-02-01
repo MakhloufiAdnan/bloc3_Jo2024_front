@@ -1,6 +1,183 @@
+//*********************************************************** Menu mobile (mobile first) ***********************************************************//
+
+.header-menu-mobile {
+
+  .container-nav-mobile{
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items:center;
+    padding: 1rem 1rem;
+    background-color: $grey-light;
+  
+    .burger-menu {
+      position: relative;
+      width: $burger-size;
+      height: $burger-size;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      margin-top: 3rem;
+  
+      // Burger icon (3 lignes)
+      .line {
+        background-color: black;
+        height: 4px;
+        width: 100%;
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out;
+      }
+    
+      &.open {
+        .line:nth-child(1) {
+          transform: translateY(6px) rotate(45deg); 
+        }
+    
+        .line:nth-child(2) {
+          opacity: 0; 
+        }
+    
+        .line:nth-child(3) {
+          transform: translateY(-6px) rotate(-45deg); 
+        }
+      }
+    }
+    
+    // Menu déroulant
+    .nav-menu {
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: 95%; 
+      left: 0;
+      right: 0;
+      overflow: hidden; 
+      background: linear-gradient(to bottom, black 0%, white 90%);
+      max-height: $menu-height; 
+      transition: max-height 0.5s ease-in-out; 
+        
+      // Menu ouvert
+      &.open {
+        max-height: $menu-max-height;
+      }
+    
+      .nav-list-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        width: 100%;
+
+        .search{
+          padding-top: 1.5rem;
+          width: 50%;
+
+          .search-bar-mobile{
+            display: flex;
+            width: 100%;
+            gap: .5rem;
+            align-items: center;
+            justify-content: center;
+            padding: .25rem;
+            background-color: $white;
+            border-radius: 0.5rem;
+
+            .div-search-mobile{
+              display: block;
+              align-self: stretch;
+              flex-grow: 1;
+              background-color: $grey-light;
+              border-radius: 0.5rem;
+
+            }
+            .icon-search-mobile{
+              height: 1.5rem;
+            }
+          }
+        }
+        
+        .line-white{
+          background-color: white;
+          width: 80%;
+          height: 4px;
+          border-radius: 2px;
+          margin: .75rem ;
+        }
+
+        .nav-item-active{
+          border: 3px solid white;
+        }
+        .nav-item-mobile {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          justify-content: flex-start;
+          padding: .5rem 1rem .5rem 1rem;
+          border-radius: 1rem;
+          background:linear-gradient(to bottom, white 0%, rgb(14, 14, 14) 100%);
+          box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.45);
+          margin: .5rem;
+          color: white;
+          width: 50%;
+          font-size: .75rem;
+  
+          a {
+            text-decoration: none;
+            display: block;
+          }
+
+          .icon-nav-mobile{
+            width: 1.5rem;
+          }
+        }
+
+        .line-black{
+          background-color: black;
+          width: 80%;
+          height: 4px;
+          border-radius: 2px;
+          margin: .5rem;
+        }
+        .icons-nav-bottom-mobile{
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          width: 80%;
+          scale: .75;
+        }
+
+        .footer-nav-mobile{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          gap: 1rem;
+          padding: .5rem 0 .5rem 0;
+          font-size: .5rem;
+        }
+      }
+    }
+  
+    .logo-mobile{
+      display: block;
+      height: auto;
+      max-width: 4rem;
+    }
+  
+    .icon-shop-mobile{
+      scale: .5;
+      margin-top: 3rem;
+    }
+  }
+}
+
+//*********************************************************** Menu desktop ***********************************************************//
 .header-menu-desktop {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  display: none; 
+  grid-template-columns: 40% 60%;
   padding: 1rem 4.5rem 1.5rem 4.5rem;
   background: linear-gradient(
     180deg,
@@ -9,25 +186,24 @@
   );
   box-shadow: $shadow;
 
-  // animation logo et anneaux
-
+  // Animation logo et anneaux
   .container-logo-move {
     display: block;
     flex: 1;
 
-    .box-logo{
+    .box-logo {
       display: flex;
       justify-content: flex-start;
       position: relative;
       overflow: hidden;
 
-      .logo-JO{
+      .logo-JO {
         width: 10rem;
         object-fit: cover;
         transition: opacity $transition-duration ease;
       }
 
-      .anneaux{
+      .anneaux {
         display: flex;
         align-items: flex-end;
         left: -300px;
@@ -35,9 +211,9 @@
         height: 100%;
         position: absolute;
         transition: transform $transition-duration ease-in-out;
-  
-        .ellipse{
-          margin-right: .5rem;
+
+        .ellipse {
+          margin-right: 0.5rem;
           width: 2rem;
         }
       }
@@ -53,7 +229,7 @@
   }
 
   &:hover::after {
-    content: url('/Photos/logo-etat-2.svg');
+    content: url('/image/logo-etat-2.webp');
     position: absolute;
     padding: 3rem 4.5rem;
     top: 0;
@@ -65,25 +241,25 @@
     transition: opacity $transition-duration ease;
   }
 
+  // Keyframes pour animer les anneaux
   @keyframes moveX {
     0% {
       left: -100px;
-      opacity: 0; 
+      opacity: 0;
     }
     40% {
-      opacity: 1; 
+      opacity: 1;
     }
     80% {
-      opacity: 1; 
+      opacity: 1;
     }
     100% {
-      left: 100%; 
-      opacity: 0; 
+      left: 100%;
+      opacity: 0;
     }
   }
 
-  // animation nav bar et icons
-
+  // Animation de la nav-bar et des icônes
   .container-nav {
     overflow: hidden;
 
@@ -102,28 +278,28 @@
         justify-content: flex-end;
         align-items: center;
 
-        .search-bar{
+        .search-bar {
           display: flex;
           width: 100%;
           align-items: center;
           justify-content: center;
           gap: 1rem;
-          padding: .5rem;
+          padding: .25rem;
           background-color: $white;
-          border-radius: .5rem;
-  
-          .div-search{
+          border-radius: 0.5rem;
+
+          .div-search {
             display: block;
             align-self: stretch;
             flex-grow: 1;
-            background-color: $grey;
-            border-radius: .5rem;
+            background-color: $grey-light;
+            border-radius: 0.5rem;
           }
-  
-          .icon-search{
+
+          .icon-search {
             display: block;
             flex-grow: 1;
-            height: 2rem;
+            height: 1.75rem;
           }
         }
       }
@@ -142,9 +318,9 @@
           align-items: center;
 
           .icon-nav {
-            opacity: 0; 
+            opacity: 0;
             height: 0;
-            transform: translateY(20px); 
+            transform: translateY(20px);
             transform: scale(0.5);
             transition: opacity $transition-duration ease-in, transform $transition-duration ease;
             transition-delay: $transition-duration;
@@ -157,16 +333,33 @@
       }
     }
   }
-  
-  &:hover .icon-nav{
-    scale: .8;
+
+  // Animation hover sur les icônes de nav
+  &:hover .icon-nav {
+    scale: 0.8;
     opacity: 1 !important;
     height: 4rem !important;
     transform: translateY(0) !important;
-    pointer-events: auto; 
+    pointer-events: auto;
   }
-}  
 
-.header-menu-desktop:hover{
-  background-color: $black-light;
+  .header-menu-desktop:hover {
+    background-color: $black-light;
+  }
+}
+
+// Menu mobile (par défaut)
+.header-menu-mobile {
+  display: block; 
+}
+
+// Responsive : Affichage Desktop (>=1024px)
+@include respond-to(desktop) {
+  .header-menu-desktop {
+    display: grid; 
+  }
+
+  .header-menu-mobile {
+    display: none; 
+  }
 }

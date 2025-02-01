@@ -1,0 +1,21 @@
+// Affichage pour les écrans de petite taille (mobile)
+@include respond-to(mobile) {
+  .header-menu-desktop {
+    display: none; 
+  }
+
+  .header-menu-mobile {
+    display: block; 
+  }
+}
+
+// Affichage pour les écrans de grande taille (desktop)
+@include respond-to(desktop) {
+  .header-menu-desktop {
+    display: grid; 
+  }
+
+  .header-menu-mobile {
+    display: none; 
+  }
+}
