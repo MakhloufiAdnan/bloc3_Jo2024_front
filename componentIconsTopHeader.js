@@ -1,10 +1,10 @@
-// Icônes et textes dynamiques
+//  Icônes et textes dynamiques
 const iconTop = ["icon-user.svg", "icon-accessibility.svg", "icon-love.svg", "icon-basket.svg"];
 const textData = [
-  { text1: "Me connecter", text2: "M'inscrire" },
-  { text1: "Accessibilité" },
-  { text1: "Mes Favoris" },
-  { text1: "Mon panier" }
+  { text1: "Me connecter", text2: "M'inscrire", link1: "#login", link2: "#signup" },
+  { text1: "Accessibilité", link1: "#accessibility" },
+  { text1: "Mes Favoris", link1: "#favorites" },
+  { text1: "Mon panier", link1: "#basket" } // Correction de "besket" en "basket"
 ];
 
 // Sélectionne les icônes
@@ -36,20 +36,44 @@ iconTopElements.forEach((iconElement, index) => {
   hoverText.classList.add("hover-text");
   hoverIcons.appendChild(hoverText);
 
-  const textIcon1 = document.createElement("div");
-  textIcon1.classList.add("text-icons");
-  textIcon1.textContent = textData[index].text1;
-  hoverText.appendChild(textIcon1);
+  // Création du premier lien
+  const linkIcon = document.createElement("a");
+  linkIcon.classList.add("text-icons");
+  linkIcon.href = textData[index].link1 || "#"; 
+  linkIcon.textContent = textData[index].text1;
+  hoverText.appendChild(linkIcon);
 
+  console.log("textData[index].text1", textData[index].text1);//verif
+
+  // Ajout d'ID spécifique pour popup sur linkIcon (text1)
+  if (textData[index].text1 === "Me connecter") {
+    linkIcon.id = "openPopupConnection";
+  } else if (textData[index].text1 === "Accessibilité") {
+    linkIcon.id = "openPopupAccessibility";
+  } else if (textData[index].text1 === "Mes Favoris") {
+    linkIcon.id = "openPopupFavorites";
+  } else if (textData[index].text1 === "Mon panier") {
+    linkIcon.id = "openPopupBasket"; 
+  }
+
+  // Création du deuxième lien si disponible
   if (textData[index].text2 !== undefined) {
     const dividingLine = document.createElement("div");
     dividingLine.classList.add("dividing-line");
     hoverText.appendChild(dividingLine);
 
-    const textIcon2 = document.createElement("div");
-    textIcon2.classList.add("text-icons");
-    textIcon2.textContent = textData[index].text2;
-    hoverText.appendChild(textIcon2);
+    const linkIcon2 = document.createElement("a");
+    linkIcon2.classList.add("text-icons");
+    linkIcon2.href = textData[index].link2 || "#"; 
+    linkIcon2.textContent = textData[index].text2;
+    hoverText.appendChild(linkIcon2);
+
+    console.log("textData[index].text2", textData[index].text2);//verif
+
+    // Ajout d'ID spécifique pour popup
+    if (textData[index].text2 === "M'inscrire") {
+      linkIcon2.id = "openPopupSignup";
+    }
   }
 
   iconElement.appendChild(hoverIcons);
@@ -61,7 +85,7 @@ iconTopElements.forEach((iconElement, index) => {
     hoverIcons.style.opacity = "1";
     hoverIcons.style.visibility = "visible";
     hoverIcons.style.pointerEvents = "auto";
-    iconElement.querySelector("img").style.opacity = "0"; // Cache l'icône de base
+    iconElement.querySelector("img").style.opacity = "0"; 
   });
 
   iconElement.addEventListener("mouseleave", () => {
@@ -69,7 +93,7 @@ iconTopElements.forEach((iconElement, index) => {
       hoverIcons.style.opacity = "0";
       hoverIcons.style.visibility = "hidden";
       hoverIcons.style.pointerEvents = "none";
-      iconElement.querySelector("img").style.opacity = "1"; // Réaffiche l'icône
+      iconElement.querySelector("img").style.opacity = "1"; 
     }, 200);
   });
 
@@ -82,7 +106,7 @@ iconTopElements.forEach((iconElement, index) => {
       hoverIcons.style.opacity = "0";
       hoverIcons.style.visibility = "hidden";
       hoverIcons.style.pointerEvents = "none";
-      iconElement.querySelector("img").style.opacity = "1"; // Réaffiche l'icône
+      iconElement.querySelector("img").style.opacity = "1"; 
     }, 200);
   });
 });
