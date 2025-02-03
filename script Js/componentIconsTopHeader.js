@@ -4,7 +4,7 @@ const textData = [
   { text1: "Me connecter", text2: "M'inscrire", link1: "#login", link2: "#signup" },
   { text1: "Accessibilité", link1: "#accessibility" },
   { text1: "Mes Favoris", link1: "#favorites" },
-  { text1: "Mon panier", link1: "#basket" } // Correction de "besket" en "basket"
+  { text1: "Mon panier", link1: "#basket" } 
 ];
 
 // Sélectionne les icônes
@@ -110,3 +110,5 @@ iconTopElements.forEach((iconElement, index) => {
     }, 200);
   });
 });
+
+console.log("componentIcons, chargé");

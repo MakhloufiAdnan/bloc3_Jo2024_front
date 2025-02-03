@@ -84,7 +84,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   padding: 1rem 1rem;
-  background-color: rgba(153, 153, 153, 0.25);
+  background-color: rgb(228, 226, 226);
 }
 .header-menu-mobile .container-nav-mobile .burger-menu {
   position: relative;
@@ -153,7 +153,7 @@ body {
   display: block;
   align-self: stretch;
   flex-grow: 1;
-  background-color: rgba(153, 153, 153, 0.25);
+  background-color: rgb(228, 226, 226);
   border-radius: 0.5rem;
 }
 .header-menu-mobile .container-nav-mobile .nav-menu .nav-list-mobile .search .search-bar-mobile .icon-search-mobile {
@@ -326,7 +326,7 @@ body {
   display: block;
   align-self: stretch;
   flex-grow: 1;
-  background-color: rgba(153, 153, 153, 0.25);
+  background-color: rgb(228, 226, 226);
   border-radius: 0.5rem;
 }
 .header-menu-desktop .container-nav .box-menu .box-search-icons .search-bar .icon-search {
@@ -366,7 +366,7 @@ body {
   pointer-events: auto;
 }
 .header-menu-desktop .header-menu-desktop:hover {
-  background-color: rgb(105, 104, 104);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .header-menu-mobile {
@@ -428,19 +428,19 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -45%);
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 8px red;
   z-index: 1000;
   width: 90%;
   max-width: 400px;
-  color: white;
+  font-size: 0.75rem;
 }
 .login-container .form-group {
-  background-color: rgb(105, 104, 104);
+  background-color: rgb(228, 226, 226);
   border-radius: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   box-shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.5);
@@ -450,15 +450,14 @@ body {
   flex-direction: column;
   justify-content: left;
   font-size: 0.75rem;
-  margin: 0.75rem 0.75rem 0.75rem 0;
+  margin: 0.75rem;
 }
 .login-container .form-group .form input, .login-container .form-group .form textarea {
-  margin: 0.75rem;
+  margin: 0.25rem;
   padding: 0.25rem;
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 5px;
   background-color: white;
-  width: 100%;
 }
 .login-container .form-group .form input:focus, .login-container .form-group .form textarea:focus {
   outline: none;
@@ -483,9 +482,9 @@ body {
 }
 .login-container .checkbox .remember-me, .login-container .checkbox .subscribe {
   display: flex;
-  flex-direction: row;
-  flex: 1;
-  margin: 0.75rem;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .login-container .checkbox .remember-me .input-checkbox, .login-container .checkbox .subscribe .input-checkbox {
   margin-right: 0.5rem;
@@ -518,19 +517,60 @@ body {
 .login-container .social-login .social-btn {
   margin-bottom: 0.75rem;
 }
-.login-container .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  background: transparent;
-  border: none;
-  color: black;
-  cursor: pointer;
-  transition: color 0.3s;
+
+.form-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.login-container .close-btn:hover {
-  color: rgb(105, 104, 104);
+
+.form-password {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.25rem;
+}
+
+.form-checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.form-checkbox .input-form-checkbox {
+  margin-right: 0.5rem;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.75rem;
+  opacity: 0;
+}
+@media (min-width: 1024px) {
+  .form-control {
+    font-size: 1rem;
+  }
+}
+
+.high-contrast {
+  background-color: black !important;
+  color: white !important;
+}
+.high-contrast * {
+  background-color: black !important;
+  color: white !important;
+  border-color: white !important;
+}
+
+.dyslexia-mode {
+  font-family: "OpenDyslexic", Arial, sans-serif !important;
+}
+
+.no-animation * {
+  animation: none !important;
+  transition: none !important;
 }
 
 .box-icons {
@@ -621,4 +661,38 @@ body {
 }
 .submit-btn:hover {
   background-color: rgb(215, 195, 120);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.close-btn:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.high-contrast {
+  background-color: black !important;
+  color: white !important;
+}
+.high-contrast * {
+  background-color: black !important;
+  color: white !important;
+  border-color: white !important;
+}
+
+.dyslexia-mode {
+  font-family: "OpenDyslexic", Arial, sans-serif !important;
+}
+
+.no-animation * {
+  animation: none !important;
+  transition: none !important;
 }/*# sourceMappingURL=main.css.map */
