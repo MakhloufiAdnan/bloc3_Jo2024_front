@@ -141,58 +141,39 @@
   </header>
   <main>
     <!-- hero-image-top -->
-    <div class="images-hero-desktop">
-      <ul class="group-hero-desktop">
-        <li class="hero-desktop">
+    <div class="images-hero" data-speed = "5000" data-transition ="700">
+      <ul class="group-hero">
+        <li class="hero">
           <h2 class="titel-image"> 
             Venez vivre des moments forts avec les artistes !
           </h2>
           <img class="image-hero-desktop" src="image/Celine-dion-Aya nakamura.webp" alt="Celine-dion-Aya nakamura">
+          <img class="image-hero-mobile" src="image/Celine dion.webp" alt="Celine-dion">
         </li>
-        <li class="hero-desktop">
+        <li class="hero">
           <h2 class="titel-image">
             Venez vivre des moments forts avec les athlètes !
           </h2>
           <img class="image-hero-desktop" src="image/cours 100m.webp" alt="course 100m">
-        </li>
-        <li class="hero-desktop">
-          <h2 class="titel-image">Des nouvelles disciplines</h2>
-          <img class="image-hero-desktop" src="image/4-disciplines-nouvelle.webp" alt="4-disciplines-nouvelle">
-        </li>
-        <li class="hero-desktop">
-          <h2 class="titel-image">Venez encourager vos athlètes</h2>
-          <img class="image-hero-desktop" src="image/ntation france.webp" alt="natation france">
-        </li>
-      </ul>
-    </div>
-    <div class="images-hero-mobile">
-      <ul class="group-hero-mobile">
-        <li class="hero-mobile">
-          <h2 class="titel-image-mobile">
-            Venez vivre des moments forts avec les artistes !
-          </h2>
-          <img class="image-hero-mobile" src="image/Celine dion.webp" alt="Celine-dion">
-        </li>
-        <li class="hero-mobile">
-          <h2 class="titel-image-mobile">
-            Venez vivre des moments forts avec les athlètes !
-          </h2>
           <img class="image-hero-mobile" src="image/gym usa.webp" alt="figure Gymnastique">
         </li>
-        <li class="hero-mobile">
-          <h2 class="titel-image-mobile">Des nouvelles disciplines</h2>
+        <li class="hero">
+          <h2 class="titel-image">Des nouvelles disciplines</h2>
+          <img class="image-hero-desktop" src="image/4-disciplines-nouvelle.webp" alt="4-disciplines-nouvelle">
           <img class="image-hero-mobile" src="image/Break dance.webp" alt="Break dance">
         </li>
-        <li class="hero-mobile">
-          <h2 class="titel-image-mobile">Venez encourager vos athlètes</h2>
+        <li class="hero">
+          <h2 class="titel-image">Venez encourager vos athlètes</h2>
+          <img class="image-hero-desktop" src="image/ntation france.webp" alt="natation france">
           <img class="image-hero-mobile" src="image/med-or-france.webp" alt="médailles or France">
         </li>
       </ul>
+      <img id="nav-left" class="chevron-gauche" src="/icons/circle-chevron-left-solid.svg" alt="chevron gauche">
+      <img id="nav-right" class="chevron-droite" src="/icons/circle-chevron-right-solid.svg" alt="chevron droite" id="nav-right">
     </div>
 
     <!-- group-main-mobile first -->
     <div class="main-group">
-
       <!-- Side-menu lerft -->
       <div class="nav-bar-side">
 
@@ -200,7 +181,7 @@
 
       <!-- Sections -->
       <div class="sections">
-        <div class="section1">
+        <div class=" section section1">
           <h2 class="titel-section titel-section-1">Présentation des jeux olympiques de PARIS 2024</h2>
           <p>
             Les Jeux Olympiques sont un événement sportif mondial majeur, organisé tous les quatre ans, où les athlètes du monde entier se rencontrent pour participer à une série de compétitions. Créés par Pierre de Coubertin en 1896, les Jeux Olympiques modernes sont l'héritier des Jeux de l'Antiquité, qui se déroulaient à Olympie en Grèce.
@@ -210,7 +191,7 @@
             Les Jeux Olympiques de Paris 2024 suscitent un grand enthousiasme à l'échelle mondiale, et ils sont particulièrement attendus en raison de la richesse historique et culturelle de la ville. Paris, qui accueille les JO pour la troisième fois (après 1900 et 1924), est un symbole fort de l’histoire des Jeux, et ces Jeux devraient refléter à la fois l'innovation moderne et la tradition.
             En somme, les Jeux Olympiques de Paris 2024 s'annoncent comme un événement marquant à la fois par son côté festif, inclusif, innovant et durable. Ils sont une occasion unique pour la France de mettre en lumière ses valeurs, sa culture et son rôle central sur la scène internationale tout en célébrant le sport dans toute sa diversité.
           </p>
-          <img src="image/image-itineraire-olympique.webp" alt="itineraire-olympique">
+          <img class="image-itinery" src="image/image-itineraire-olympique.webp" alt="itineraire-olympique">
           <h2 class="titel-section-1">Paris 2024 met le paquet ! </h2>
           <ol>
             <h3> L’organisation des jeux Olympique de Paris met l’acces sur les points suivants :</h3>
@@ -244,17 +225,17 @@
             <!--gestion js-->
           </div>
         </div>
-        <div class="section2">
+        <div class="section section2">
           <h2 class="titel-section titel-section-1">Fil d’actualité des jeux 2024</h2>
           <div class="cards-news-feed">
             <!--gestion js-->
           </div>
         </div>
-        <div class="section3">
+        <div class="section section3">
           <h2 class="titel-section titel-section-3">Calendrier</h2>
           <div class="hero-image">
-            <img src="image/basket-france.webp" alt="basket-france">
-            <button class="shop"></button>
+            <img class="image-section3" src="image/basket-france.webp" alt="basket-france">
+            <button class="btn-shop"></button>
           </div>
           <div class="btn-filters">
             <button class="filter-teams"></button>
@@ -265,14 +246,14 @@
 
           </div>
         </div>
-        <div class="section4">
+        <div class="section section4">
           <h2 class="titel-section titel-section-4">Les médailles</h2>
           <div class="medals-box">
             <div class="btn-image">
                 <button class="filter-teams"></button>
                 <div class="image-btn">
-                  <img src="image/medailles olympiques 2024.webp" alt="medailles olympiques 2024">
-                  <button class="shop"></button>
+                  <img class="image-medals" src="image/medailles olympiques 2024.webp" alt="medailles olympiques 2024">
+                  <button class="btn-shop"></button>
                 </div>
             </div>
             <div class="table-medals">
@@ -280,7 +261,7 @@
             </div>
           </div>
         </div>
-        <div class="section5">
+        <div class="section section5">
           <h2 class="titel-section titel-section-5">Les meilleurs moments</h2>
           <div class="cards-news">
             <!--gestion js-->
@@ -296,7 +277,7 @@
       <div class="titel-advense">
         <span class="line-black"></span><h2>PARTENAIRES OFFICIELS</h2><span class="line-black"></span>
       </div>
-      <img src="image/partenaires jo.webp" alt="partenaires jo 2024">
+      <img class="image-advense" src="image/partenaires jo.webp" alt="partenaires jo 2024">
     </div>
   </main>
 
@@ -304,5 +285,6 @@
   <script src="script Js/componentIconsTopHeader.js"></script>
   <script src="script Js/managmentPopUps.js"></script>
   <script src="script Js/accessibility.js"></script>
+  <script src="script Js/animHero.js"></script>
 </body>
 </html>

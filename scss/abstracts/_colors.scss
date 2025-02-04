@@ -3,9 +3,36 @@ $black-light: rgba(0, 0, 0, .6);
 $white: rgba(255, 255, 255, 1);
 $grey:  rgba(153, 153, 153, 1);
 $grey-light:  rgb(228, 226, 226);
-$shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.5);
-$footer: rgba(45, 44, 44, .9);
-$primary: rgba(215, 195, 120, 1);
 
+$shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.5);
+
+$footer: rgba(45, 44, 44, .9);
+
+$primary: rgba(215, 195, 120, 1);
 $secondary: conic-gradient(white 25%, grey 85%, black 100%); //couleur conique
 
+$blue-linear: linear-gradient(
+    270deg,
+    rgba(67, 116, 246, 0.5) 28%,
+    rgba(44, 76, 161, 0.75) 50%,
+    rgba(39, 68, 144, 1) 70%
+    ); 
+$yellow-linear: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+linear-gradient(
+  269.94deg,
+  rgba(245, 237, 49, 0.5) 28%,
+  rgba(210, 203, 42, 0.75) 50%,
+  rgba(143, 138, 28, 1) 70%
+);
+$black-linear:linear-gradient(
+  269.97deg,
+  rgba(35, 35, 35, 0.5) 28,
+  rgba(35, 35, 35, 0.75) 50%,
+  rgba(102, 102, 102, 1) 70%
+);
+$green-linear: linear-gradient(
+  -89.96deg,
+  rgba(43, 141, 8, 0.5) 28%,
+  rgba(43, 141, 8, 0.75) 50%,
+  rgba(22, 74, 4, 1) 70%
+);

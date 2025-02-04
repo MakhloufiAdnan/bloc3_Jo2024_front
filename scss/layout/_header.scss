@@ -61,6 +61,7 @@
       // Menu ouvert
       &.open {
         max-height: $menu-max-height;
+        z-index: 2;
       }
     
       .nav-list-mobile {

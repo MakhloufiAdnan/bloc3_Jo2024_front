@@ -110,7 +110,7 @@ function openPopup(title) {
       </div>
     `;
   }else if (title === "Mes favoris") {
-    content = `<p>Liste de vos favoris...</p>`;
+    content = `<p>Un compte est nécessaire pour cette fonction.</p>`;
   } 
 
   popup.innerHTML = `
@@ -118,7 +118,8 @@ function openPopup(title) {
       <h2>${title}</h2>
       <button id="closePopup" class="close-btn">&times;</button>
       ${content}
-    </div>`;
+    </div>
+    `;
 
   document.body.appendChild(popup);
 

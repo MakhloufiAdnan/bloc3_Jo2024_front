@@ -126,6 +126,7 @@ body {
 }
 .header-menu-mobile .container-nav-mobile .nav-menu.open {
   max-height: 1000px;
+  z-index: 2;
 }
 .header-menu-mobile .container-nav-mobile .nav-menu .nav-list-mobile {
   display: flex;
@@ -695,4 +696,90 @@ body {
 .no-animation * {
   animation: none !important;
   transition: none !important;
+}
+
+.images-hero {
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+.images-hero .group-hero {
+  display: flex;
+}
+.images-hero .group-hero .hero {
+  flex: 1 0 100%;
+  position: relative;
+}
+.images-hero .group-hero .hero .titel-image {
+  position: absolute;
+  top: 80%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: green;
+  -webkit-text-stroke: 1px #000000;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  .images-hero .group-hero .hero .titel-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: rgb(215, 195, 120);
+    -webkit-text-stroke: 1px #000000;
+    text-align: center;
+  }
+}
+.images-hero .group-hero .hero .image-hero-mobile {
+  display: block;
+  width: 1024px;
+  height: 584px;
+}
+.images-hero .group-hero .hero .image-hero-desktop {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .images-hero .group-hero .hero .image-hero-desktop {
+    display: block;
+    width: 100%;
+    height: 900px;
+  }
+  .images-hero .group-hero .hero .image-hero-mobile {
+    display: none;
+  }
+}
+.images-hero .chevron-gauche {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+.images-hero .chevron-droite {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+}
+
+.main-group .sections .section .titel-section-1 {
+  background: linear-gradient(270deg, rgba(67, 116, 246, 0.5) 28%, rgba(44, 76, 161, 0.75) 50%, rgb(39, 68, 144) 70%);
+}
+.main-group .sections .section .titel-section-3 {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(269.94deg, rgba(245, 237, 49, 0.5) 28%, rgba(210, 203, 42, 0.75) 50%, rgb(143, 138, 28) 70%);
+}
+.main-group .sections .section .titel-section-4 {
+  background: linear-gradient(269.97deg, rgba(35, 35, 35, 0.5) 28, rgba(35, 35, 35, 0.75) 50%, rgb(102, 102, 102) 70%);
+}
+.main-group .sections .section .titel-section-5 {
+  background: linear-gradient(-89.96deg, rgba(43, 141, 8, 0.5) 28%, rgba(43, 141, 8, 0.75) 50%, rgb(22, 74, 4) 70%);
 }/*# sourceMappingURL=main.css.map */
