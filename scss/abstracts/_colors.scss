@@ -10,6 +10,11 @@ $footer: rgba(45, 44, 44, .9);
 
 $primary: rgba(215, 195, 120, 1);
 $secondary: conic-gradient(white 25%, grey 85%, black 100%); //couleur conique
+$cardsColor: linear-gradient(
+  180deg,
+  rgba(91, 89, 89, 0.82) 30%,
+  rgba(247, 246, 246, 0.82) 100%
+);
 
 $blue-linear: linear-gradient(
     270deg,
