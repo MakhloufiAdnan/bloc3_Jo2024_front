@@ -67,7 +67,7 @@ if (!cardsNewsFeed) {
     // Ajout au fragment
     fragmentCardsNewsFeed.appendChild(card);
   });
-
+  
   // Ajout final au DOM
   cardsNewsFeed.appendChild(fragmentCardsNewsFeed);
 }

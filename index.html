@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/scss/main.css">
-    
-
     <title>Jeux Olympique 2024-Bloc3</title>
 </head>
 <body>
+  <!--*********************************************************************  Header  *********************************************************************-->
   <header>
-    <!--Header desktop-->
     <div class="header-menu-desktop">
       <div class="container-logo-move">
         <div class="box-logo">
@@ -139,6 +137,8 @@
       </div>
     </div>
   </header>
+
+  <!--*********************************************************************  Main  *********************************************************************-->
   <main>
     <!-- hero-image-top -->
     <div class="images-hero" data-speed = "5000" data-transition ="700">
@@ -169,7 +169,7 @@
         </li>
       </ul>
       <img id="nav-left" class="chevron-gauche" src="/icons/circle-chevron-left-solid.svg" alt="chevron gauche">
-      <img id="nav-right" class="chevron-droite" src="/icons/circle-chevron-right-solid.svg" alt="chevron droite" id="nav-right">
+      <img id="nav-right" class="chevron-droite" src="/icons/circle-chevron-right-solid.svg" alt="chevron droite">
     </div>
 
     <!-- group-main-mobile first -->
@@ -178,7 +178,7 @@
 
         <!-- Side-menu lerft -->
         <div class="nav-sidebars">
-          <div class="nav-sideBar nav-sideBar-off">
+          <div class="nav-sideBar  nav-sideBar-off" id="sideBarOff">
             <div class="header-menu-sidebar">
               <img class="logo-olympique" src="image/logo-etat-2.webp" />
               <div class="icons-sidebar">
@@ -192,12 +192,50 @@
               <img class="contact-sidebar" src="icons/icon-contact-sidebar.svg" />
             </div>
           </div>
-          <div class="nav-sideBar nav-sideBar-on">
+          <div class="nav-sideBar nav-sideBar-on" id="sideBarOn">
+            <div class="header-menu-sidebar">
+              <img class="logo-olympique" src="image/logo-etat-1.webp" />
+              <div class="icons-sidebar"> 
+                <div class="box-menu-sidebare home-sidebare">
+                  <img class="icon-sidebar" src="icons/icon-home-mobile.svg" />
+                  <div class="box-title">Accueil</div>
+                </div>
+                <div class="box-menu-sidebare good-moment-sidebare">
+                  <img class="icon-sidebar" src="icons/icon-good-moment-sidebar.svg" />
+                  <div class="box-title">Meilleurs moments</div>
+                </div>
+                <div class="box-menu-sidebare medal-sidebare">
+                  <img class="icon-sidebar" src="icons/icon-medal-mobile.svg" />
+                  <div class="box-title">Médailles</div>
+                </div>
+                <div class="box-menu-sidebare calendar-sidebare">
+                  <img class="icon-sidebar"src="icons/icone-calendar-mobile.svg" />
+                  <div class="box-title">Calendrier</div>
+                </div>
+                <div class="box-menu-sidebare JOP-sidebare">
+                  <img class="icon-sidebar" src="icons/icon-paralimpyque-side-bar.svg" />
+                  <div class="box-title">Jeux paralympiques</div>
+                </div>
+                <div class="box-menu-sidebare shop-sidebare">
+                  <img class="icon-sidebar" src="icons/icon-Business-mobile.svg" />
+                  <div class="box-title">Boutique</div>
+                </div>
+              </div>
+              <div class="login-sidebare">
+                <img class="icon-sidebar" src="icons/icon-contact-sidebar.svg" />
+                <div class="box-login">
+                  <button class="btn-up-white">Se connecte</button>
+                  <img class="icon-sidebar" src="icons/btn-up-white.svg" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Sections -->
         <div class="sections">
+
+          <!-- Section 1 -->
           <div class="section section1">
             <h2 class="title-section title-section-1">Présentation des jeux olympiques de PARIS 2024</h2>
             <div class="paragraphs">
@@ -246,14 +284,238 @@
               <!--gestion js-->
             </div>
           </div>
+
+          <!-- Section 2 -->
           <div class="section section2">
             <h2 class="title-section title-section-1">Fil d’actualité des jeux 2024</h2>
             <div class="cards-news-feed">
               <!--gestion js-->
             </div>
           </div>
+
+          <!-- Section 3 -->
           <div class="section section3">
-            
+            <h2 class="title-section title-section-3">Calendrier</h2>
+            <div class="group-image-section3">
+              <img class="image-section3" src="image/basket-france.webp" alt="basket-france">
+              <button class="btn-shop">Accéder à la boutique</button>
+            </div>
+            <div class="container-btn-filters">
+              <div class="btn-filters">
+                <div class="btn-filter countries">
+                  <div class="all-contries">
+                    <button class="btn-dropdown">Toutes les équipes</button>
+                    <div class="btn-up-white">
+                      <img src="group-590.svg" />
+                    </div>
+                  </div>
+                </div>
+                <div class="btn-filter test">
+                  <div class="all-tests">
+                    <button class="btn-dropdown">Toutes les épreuves</button>
+                    <div class="btn-up-white">
+                      <img src="group-591.svg"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="time-zone">
+                <span class="text-time-zone">Heure de Paris</span>
+                <button class="btn-switch-time-zone"></button>
+                <span class="text-time-zone">Mon horaire</span>
+              </div>
+            </div>
+            <div class="table-tests">
+              <img src="image/tests-table.svg" alt="image-table-tests">
+            </div>
+          </div>
+
+          <!-- Section 4 -->
+          <div class="section section4">
+            <h2 class="title-section title-section-4">Les médailles</h2>
+            <div class="medals-box">
+              <div class="btn-image">
+                  <button class="filter-teams"></button>
+                  <div class="image-btn">
+                    <img class="image-medals" src="image/medailles olympiques 2024.webp" alt="medailles olympiques 2024">
+                    <button class="btn-shop"></button>
+                  </div>
+              </div>
+              <div class="table-medals">
+  
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5 -->
+          <div class="section section5">
+            <h2 class="title-section title-section-5">Les meilleurs moments</h2>
+            <div class="cards-news">
+              <!--gestion js-->
+              <div class="cards-actualitys3">
+                <div class="frame-684">
+                  <div class="h-2-desktop-label5">
+                    <div class="h-2-desktop-label11">
+                      Visualisez le parcours du relais de la flamme olympique en France
+                      jusqu&#039;au 26 juillet
+                    </div>
+                  </div>
+                  <div class="text5">
+                    <div class="label-text-news5">
+                      <span>
+                        <span class="label-text-news-5-span">
+                          La torche, arrivée le 8 mai à Marseille, va parcourir 12 000
+                          km sur tout le territoire national, dans l&#039;Hexagone et en
+                          outre-mer, en faisant la part belle au patrimoine français.
+                          <br />
+                          Des étapes aussi attendues que celles du Tour de France. 
+                        </span>
+                        <span class="label-text-news-5-span2">
+                          Soixante-quatre départements vont voir passer
+                        </span>
+                        <span class="label-text-news-5-span3">
+                           le relais de la flamme olympique, qui a débarqué sur le sol
+                          français mercredi 8 mai à Marseille, après un voyage de dix
+                          jours depuis la Grèce 
+                        </span>
+                        <span class="label-text-news-5-span4">
+                          à bord du voilier Belem
+                        </span>
+                        <span class="label-text-news-5-span5">
+                          . Le coup d&#039;envoi d&#039;un marathon de 79 jours
+                          jusqu&#039;au début des Jeux de Paris, le 26 juillet, et
+                          l&#039;allumage de la flamme au jardin des Tuileries par un
+                          dernier relayeur dont l&#039;identité fait l&#039;objet de
+                          toutes les spéculations.
+                          <br />
+                          L&#039;un des axes majeurs du parcours vise à mettre en valeur
+                          le patrimoine français, avec des passages dans des sites
+                          historiques emblématiques : la grotte de Lascaux (Dordogne),
+                          le Mont-Saint-Michel (Manche), les plages du Débarquement
+                          (plusieurs départements de Normandie), le Mémorial de Verdun
+                          (Meuse), le site archéologique d&#039;Alésia (Côte-d&#039;Or),
+                          les remparts de Carcassonne (Aude) et le château de Versailles
+                          (Yvelines) dans la dernière ligne droite. Les sites naturels
+                          ne sont pas en reste, avec un passage dans la vallée du
+                          Mont-Blanc (Haute-Savoie), au Pic du Midi ou encore dans les
+                          gorges du Verdon.
+                          <br />
+                          Pour mettre l&#039;accent sur les richesses du pays, la
+                          gastronomie sera également à l&#039;honneur, avec un saut dans
+                          les vignobles les plus réputés (
+                        </span>
+                        <span class="label-text-news-5-span6">Saint-Emilion</span>
+                        <span class="label-text-news-5-span7">
+                          , Chablis, les Coteaux du Layon...), tout comme la culture (le
+                          Louvre-Lens, le musée de la BD d&#039;Angoulême, le palais des
+                          Festivals à Cannes) et bien sûr le sport (Roland-Garros, le
+                          Stade de France, le stade Vélodrome ou le &quot;chaudron&quot;
+                          de Geoffroy-Guichard à Saint-Etienne). En revanche, les deux
+                          seules autres villes françaises qui ont accueilli des Jeux
+                          (d&#039;hiver), Grenoble et Albertville, ne sont pas
+                          concernées par ce relais de la flamme.
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <img class="rectangle-533" src="rectangle-537.png" />
+              </div>
+            </div>
+            <h2 class="titel-section titel-section-5">Quelques porteurs de la flamme Olympique</h2>
+            <div class="horizontal-carousel">
+              <!--gestion js-->
+              <div class="carousel-flame-carrier">
+                <div
+                  class="img-caroussel-scrol"
+                  style="
+                    background: url(Photos/zidane.jpg) center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <div class="frame-145">
+                    <div class="nom-de-l-artiste">Zenedin Zidane</div>
+                  </div>
+                </div>
+                <div
+                  class="img-caroussel-scrol"
+                  style="
+                    background: url(Photos/vaimalama-chaves-miss-france-2019.jpeg) center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <div class="frame-145">
+                    <div class="nom-de-l-artiste">Vaimalama Chaves</div>
+                  </div>
+                </div>
+                <div
+                  class="img-caroussel-scrol"
+                  style="
+                    background: url(Photos/Hugo\ marchand.jpg) center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <div class="frame-145">
+                    <div class="nom-de-l-artiste">Hugo Marchand</div>
+                  </div>
+                </div>
+                <div
+                  class="caroussel-scrol"
+                  style="
+                    background: url(Photos/Ophelie\ meunier.jpg) center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <div class="headband-name">
+                    <div class="nom-de-l-artiste">Ophelie Meunier</div>
+                  </div>
+                </div>
+                <div
+                  class="caroussel-scrol"
+                  style="
+                    background: url(Photos/thierry_marx_chef.jpg) center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <div class="frame-145">
+                    <div class="nom-de-l-artiste">Thierry Marx</div>
+                  </div>
+                </div>
+                <div
+                  class="caroussel-scrol"
+                  style="
+                    background: url(Photos/Jamel\ debbouze.jpg) center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <div class="frame-145">
+                      <div class="nom-de-l-artiste">Jamel Debbouze</div>
+                  </div>
+                </div>
+                <div
+                  class="caroussel-scrol"
+                  style="
+                    background: url(Photos/Yannick\ \ Noah.jpg) center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                  "
+                >
+                  <div class="frame-145">
+                    <div class="nom-de-l-artiste">Yannick Noah</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="advense">
       <div class="titel-advense">
@@ -263,6 +525,12 @@
     </div>
   </main>
 
+  <!--*********************************************************************  Footer  *********************************************************************-->
+  <footer>
+    
+  </footer>
+
+  <!--*********************************************************************  Script  *********************************************************************-->
   <script src="script Js/animationBurgerMenu.js"></script>
   <script src="script Js/componentIconsTopHeader.js"></script>
   <script src="script Js/managmentPopUps.js"></script>
@@ -270,5 +538,6 @@
   <script src="script Js/animHero.js"></script>
   <script src="script Js/componentCardsNews.js"></script>
   <script src="script Js/componentCardsNewsFeed.js"></script>
+  <script src="script Js/animationSideBare.js"></script>
 </body>
 </html>

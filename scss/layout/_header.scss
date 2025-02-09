@@ -61,7 +61,7 @@
       // Menu ouvert
       &.open {
         max-height: $menu-max-height;
-        z-index: 2;
+        z-index: 10;
       }
     
       .nav-list-mobile {
@@ -178,6 +178,7 @@
 
 //*********************************************************** Menu desktop ***********************************************************//
 .header-menu-desktop {
+  z-index: 100;
   display: none; 
   grid-template-columns: 40% 60%;
   padding: 1rem 4.5rem 1.5rem 4.5rem;

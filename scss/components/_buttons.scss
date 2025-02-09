@@ -140,22 +140,31 @@
 }
 
 .btn-more{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: .75rem 1rem;
-  border-radius: 1rem;
-  background: $primary;
-  border: solid 2px black;
-  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.5);
-  font-size: 1rem;
-  font-weight: bold;
-  
-  cursor: pointer;
-  transition: all 0.3s;
+  display: none;
 
-  &:hover{
-    background: rgba(215, 195, 120, .5);
-    border: solid 2px white;
+  @include respond-to(desktop) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .75rem 1rem;
+    border-radius: 1rem;
+    background: $primary;
+    border: solid 2px black;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    font-weight: bold;
+    
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover{
+      background: rgba(215, 195, 120, .5);
+      border: solid 2px white;
+    }
   }
+}
+
+.btn-switch-time-zone{
+//à faire
+  width: 100%;
 }

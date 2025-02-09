@@ -22,6 +22,7 @@ if (!cardsNews) {
   // Crée un fragment pour améliorer les performances
   const fragmentCardsNews = document.createDocumentFragment();
 
+  
   // Génère dynamiquement les cartes
   imageCardsNews.forEach((imageSrc, index) => {
     if (!textDataCardsNews[index]) {
@@ -61,7 +62,7 @@ if (!cardsNews) {
     // Ajout de la carte au fragment (et non au DOM directement)
     fragmentCardsNews.appendChild(card);
   });
-
+  
   // Ajout final des cartes au DOM
   cardsNews.appendChild(fragmentCardsNews);
 

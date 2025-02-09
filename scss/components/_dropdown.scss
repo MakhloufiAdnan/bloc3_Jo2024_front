@@ -1,0 +1,75 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 80%;
+  .dropdown-toggle {
+    background-color: $white;
+    border: none;
+    padding: .5rem 1rem;
+    font-size: .5rem;
+    margin: .5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    &:hover {
+      background-color: $grey-light;
+    }
+
+    // Chevron
+    .dropdown-chevron {
+      display: inline-block;
+      margin-left: .75rem;
+      width: .5rem;
+      height: .5rem;
+      border-right: 2px solid $black;
+      border-bottom: 2px solid $black;
+      transform: rotate(45deg); // Chevron initial
+      transition: transform 0.3s ease;
+    }
+  }
+
+  // Menu déroulant caché par défaut
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: $grey-light;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+
+    .dropdown-item {
+      .a-dropdown {
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $grey-light;
+          color: $grey-light;
+        }
+      }
+    }
+  }
+
+  // Activer le menu quand la classe active est présente
+  .dropdown--active {
+    .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-toggle .dropdown-chevron {
+      transform: rotate(-135deg); // Chevron pointe vers le haut
+    }
+  }
+}
