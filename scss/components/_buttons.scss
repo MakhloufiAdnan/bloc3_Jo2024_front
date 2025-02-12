@@ -164,7 +164,73 @@
   }
 }
 
-.btn-switch-time-zone{
-//à faire
-  width: 100%;
+.btn-shop{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .75rem 1rem;
+  border-radius: 1rem;
+  background: $primary;
+  border: solid 2px black;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
+  font-weight: bold;
+  
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover{
+    background: rgba(215, 195, 120, .5);
+    border: solid 2px white;
+  }
+}
+
+.btn-switch{
+  display: inline-block;
+	position: relative;
+	width: 50px;
+	height: 28px;
+	cursor: pointer;
+	overflow: hidden;
+
+  .checkbox-btn-swith {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 0;
+    height: 0;
+  }
+
+  .checkbox-btn-swith + .span-btn-switch {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $yellow-linear;
+    border-radius: 20px;
+    border: 2px solid black;
+  }
+
+  .checkbox-btn-swith:checked + .span-btn-switch {
+    background: $green-linear;
+  }
+
+  .checkbox-btn-swith + .span-btn-switch:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    background: black;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: all .5s;
+  }
+
+  .checkbox-btn-swith:checked + .span-btn-switch:before {
+    left: 24px;
+  }
 }

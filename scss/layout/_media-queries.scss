@@ -11,4 +11,17 @@
   }
 }
 
+//footer
 
+.container-footer {
+  .icons{
+      @include respond-to(desktop) {
+      justify-content: center;
+    }
+    .icon{
+      @include respond-to(desktop) {
+        margin: .5rem 1.5rem .5rem 1.5rem;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-const imageCardsNews = ["image seine paris.jpg", "village olympique.jpg", "nouveaux sports.jpg", "police jo.jpg"];
+const imageCardsNews = ["image-seine-paris.jpg", "village-olympique.jpg", "nouveaux-sports.jpg", "police-jo.jpg"];
 const textDataCardsNews = [
   { title: "la Seine sera le théâtre de la cérémonie d\’ouverture des Jeux devant 600 000 personnes.", 
     paragraph: "Les organisateurs ont dévoilé, lundi 13 décembre, leur concept de « Seine olympique » : les 10 500 athlètes défileront, le 26 juillet 2024, sur des bateaux, devant les spectateurs massés sur les quais du fleuve parisien. La cérémonie d\’ouverture des Jeux olympiques de Paris 2024 s\’annonce spectaculaire, grandiose, unique. C\’est en tout cas ce que promettent les images dévoilées lundi 13 décembre par le Comité d\’organisation (COJO) de Paris 2024. Le 26 juillet 2024, pour la première fois de l\’histoire olympique, une cérémonie d\’ouverture se déroulera hors d\’un stade. Ce n\’est pas une surprise : Tony Estanguet, le patron de Paris 2024, l\’avait dit au Monde début 2021, révélant alors que la Seine serait le fil conducteur de l\’événement." },

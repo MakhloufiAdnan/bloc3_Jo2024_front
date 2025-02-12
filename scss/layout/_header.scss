@@ -1,7 +1,11 @@
 //*********************************************************** Menu mobile (mobile first) ***********************************************************//
 
 .header-menu-mobile {
-
+  width: 100%;
+  overflow: hidden;
+  z-index: 15;
+  position: relative;
+  
   .container-nav-mobile{
     display: flex;
     position: relative;
