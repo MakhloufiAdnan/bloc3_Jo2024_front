@@ -92,3 +92,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 500);
 });
+
+console.log("script chargé");

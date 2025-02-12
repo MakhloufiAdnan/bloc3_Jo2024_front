@@ -81,3 +81,5 @@ if (!cardsNews) {
     });
   });
 }
+
+console.log("Script componentCardsNews chargé");

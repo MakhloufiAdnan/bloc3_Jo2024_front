@@ -22,40 +22,40 @@ function initCarousel(carouselSelector, groupSelector, navLeftSelector, navRight
   const prev = document.querySelector(navLeftSelector);
 
   function slideNext() {
-      compteur++;
-      let slideWidth = updateSlideWidth();
-      elements.style.transition = `${transition}ms linear`;
-      elements.style.transform = `translateX(${-slideWidth * compteur}px)`;
+    compteur++;
+    let slideWidth = updateSlideWidth();
+    elements.style.transition = `${transition}ms linear`;
+    elements.style.transform = `translateX(${-slideWidth * compteur}px)`;
 
-      setTimeout(() => {
-          if (compteur >= slides.length - 1) {
-              compteur = 0;
-              elements.style.transition = 'unset';
-              elements.style.transform = 'translateX(0)';
-          }
-      }, transition);
+    setTimeout(() => {
+      if (compteur >= slides.length - 1) {
+        compteur = 0;
+        elements.style.transition = 'unset';
+        elements.style.transform = 'translateX(0)';
+      }
+    }, transition);
   }
 
   function slidePrev() {
-      compteur--;
-      let slideWidth = updateSlideWidth();
-      elements.style.transition = `${transition}ms linear`;
-      if (compteur < 0) {
-          compteur = slides.length - 1;
-          elements.style.transition = 'unset';
-          elements.style.transform = `translateX(${-slideWidth * compteur}px)`;
-          setTimeout(slidePrev, 1);
-      } else {
-          elements.style.transform = `translateX(${-slideWidth * compteur}px)`;
-      }
+    compteur--;
+    let slideWidth = updateSlideWidth();
+    elements.style.transition = `${transition}ms linear`;
+    if (compteur < 0) {
+      compteur = slides.length - 1;
+      elements.style.transition = 'unset';
+      elements.style.transform = `translateX(${-slideWidth * compteur}px)`;
+      setTimeout(slidePrev, 1);
+    } else {
+      elements.style.transform = `translateX(${-slideWidth * compteur}px)`;
+    }
   }
 
   function stopTimer() {
-      clearInterval(timer);
+    clearInterval(timer);
   }
 
   function startTimer() {
-      timer = setInterval(slideNext, speed);
+    timer = setInterval(slideNext, speed);
   }
 
   next.addEventListener('click', slideNext);
@@ -72,3 +72,5 @@ window.onload = () => {
   initCarousel('.carousel1', '.carousel-group1', '.nav-left', '.nav-right');
   initCarousel('.carousel2', '.carousel-group2', '.nav-left2', '.nav-right2');
 };
+
+console.log('script carousels chargé');

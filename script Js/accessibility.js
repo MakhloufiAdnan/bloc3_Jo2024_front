@@ -42,3 +42,5 @@ function speakText(text) {
 function disableAnimations() {
   document.body.classList.toggle("no-animation");
 }
+
+console.log("Script accessibilité chargé !");

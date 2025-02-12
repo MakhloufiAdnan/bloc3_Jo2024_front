@@ -133,4 +133,4 @@ function openPopup(title) {
   }
 }
 
-console.log("managmentPopUps.js chargé");
+console.log("managmentPopUps chargé");

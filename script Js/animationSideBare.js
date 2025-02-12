@@ -20,3 +20,5 @@ function closeSidebar() {
 
 sidebarOff.addEventListener('mouseenter', openSidebar); 
 sidebarOn.addEventListener('mouseleave', closeSidebar); 
+
+console.log('script animation sidebare chargé');

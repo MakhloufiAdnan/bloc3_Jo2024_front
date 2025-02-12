@@ -1,10 +1,6 @@
 //*********************************************************** Menu mobile (mobile first) ***********************************************************//
 
 .header-menu-mobile {
-  width: 100%;
-  overflow: hidden;
-  z-index: 15;
-  position: relative;
   
   .container-nav-mobile{
     display: flex;
@@ -14,7 +10,7 @@
     align-items:center;
     padding: 1rem 1rem;
     background-color: $grey-light;
-  
+
     .burger-menu {
       position: relative;
       width: $burger-size;
@@ -24,7 +20,7 @@
       justify-content: space-between;
       cursor: pointer;
       margin-top: 3rem;
-  
+
       // Burger icon (3 lignes)
       .line {
         background-color: black;
@@ -33,22 +29,22 @@
         border-radius: 2px;
         transition: all 0.3s ease-in-out;
       }
-    
+
       &.open {
         .line:nth-child(1) {
           transform: translateY(6px) rotate(45deg); 
         }
-    
+
         .line:nth-child(2) {
           opacity: 0; 
         }
-    
+
         .line:nth-child(3) {
           transform: translateY(-6px) rotate(-45deg); 
         }
       }
     }
-    
+
     // Menu déroulant
     .nav-menu {
       display: flex;
@@ -61,13 +57,14 @@
       background: linear-gradient(to bottom, black 0%, white 90%);
       max-height: $menu-height; 
       transition: max-height 0.5s ease-in-out; 
-        
+      z-index: 30;
+
       // Menu ouvert
       &.open {
         max-height: $menu-max-height;
-        z-index: 10;
+        z-index: 30;
       }
-    
+
       .nav-list-mobile {
         display: flex;
         flex-direction: column;
@@ -103,7 +100,7 @@
             }
           }
         }
-        
+
         .line-white{
           background-color: white;
           width: 80%;
@@ -111,11 +108,11 @@
           border-radius: 2px;
           margin: .75rem ;
         }
-        
+
         .nav-item-active{
           border: 3px solid white;
         }
-        
+
         .nav-item-mobile {
           display: flex;
           gap: 1rem;
@@ -129,7 +126,7 @@
           color: white;
           width: 50%;
           font-size: .75rem;
-  
+
           a {
             text-decoration: none;
             display: block;
@@ -166,13 +163,13 @@
         }
       }
     }
-  
+
     .logo-mobile{
       display: block;
       height: auto;
       max-width: 4rem;
     }
-  
+
     .icon-shop-mobile{
       scale: .5;
       margin-top: 3rem;
@@ -182,7 +179,6 @@
 
 //*********************************************************** Menu desktop ***********************************************************//
 .header-menu-desktop {
-  z-index: 100;
   display: none; 
   grid-template-columns: 40% 60%;
   padding: 1rem 4.5rem 1.5rem 4.5rem;

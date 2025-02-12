@@ -6,7 +6,7 @@
   justify-content: flex-start;
   position: fixed;
   left: 0;
-  top: 50%;
+  top: 75%;
   transform: translateY(-50%);
   height: 100vh;
   z-index: 10;
@@ -33,7 +33,7 @@
       background: $cardsColor;
       border-radius: 0 1rem 1rem 0;
       width: auto;
-      height: 80vh;
+      height: 70vh;
   
       .logo-olympique {
         width: 5rem;
@@ -150,8 +150,3 @@
     }
   }
 }
-
-
-
-
-

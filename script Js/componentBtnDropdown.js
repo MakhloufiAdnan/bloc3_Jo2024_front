@@ -70,3 +70,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+console.log("script componentBtnDropdown chargé");

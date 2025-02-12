@@ -1,9 +1,12 @@
+// Z index 10
+
 .carousel1, .carousel2{
   width: 100%;
   overflow: hidden;
+  z-index: 21;
   position: relative;
 
-  .carousel-group1, .carousel-group2{
+  .carousel-group1{
     display: flex;
 
     .carousel-hero{
@@ -15,7 +18,7 @@
         top: 90%;
         left: 50%;
         transform: translate(-50%, -50%);
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: green;
         -webkit-text-stroke: 1px #000000;
         text-align: center;
@@ -55,6 +58,10 @@
         }
       }
     }
+  }
+  
+  .carousel-group2{
+    display: flex;
 
     .carousel-photo{
       flex: 1 0 100%;
@@ -64,6 +71,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      max-width: 100%;
 
       .title-image-celbrity{
         position: absolute;
@@ -95,15 +103,15 @@
       }
     }
   }
-  
+
   .nav-left, .nav-right, .nav-left2, .nav-right2{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 2;
     cursor: pointer;
     width: 50px;
     height: 50px;
+    z-index: 22;
   }
 
   .nav-right{
@@ -115,10 +123,10 @@
   }
 
   .nav-right2{
-    right: 41%;
+    right: 30%;
   }
 
   .nav-left2{
-    left: 41%;
+    left: 30%;
   }
 }
