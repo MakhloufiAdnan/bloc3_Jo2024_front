@@ -328,9 +328,15 @@
             transition: opacity $transition-duration ease-in, transform $transition-duration ease;
             transition-delay: $transition-duration;
           }
-
+          
           .text-wrapper {
             margin-top: 0.5rem;
+
+            a{
+              position: relative;
+              z-index: 100;
+              cursor: pointer;
+            }
           }
         }
       }

@@ -37,38 +37,38 @@
             <div class="line-white"></div>
             <div class="nav-item-mobile nav-item-active">
               <span class="icon-nav-mobile"><img src="icons/icon-home-mobile.svg" /></span>
-              <span><a  href="">Accueil</a></span>
+              <span><a href="#presentation">Accueil</a></span>
             </div>
             <div class="nav-item-mobile">
               <span class="icon-nav-mobile"><img src="icons/icon-moment-mobile.svg" /></span>
-              <span><a href="">Meilleurs moments</a></span>
+              <span><a href="#good-moment">Meilleurs moments</a></span>
             </div>
             <div class="nav-item-mobile">
               <span class="icon-nav-mobile"><img src="icons/icon-medal-mobile.svg" /></span>
-              <a href="">Médailles</a>
+              <a href="#medal">Médailles</a>
             </div>
             <div class="nav-item-mobile">
               <span class="icon-nav-mobile"><img src="icons/icone-calendar-mobile.svg" /></span>
-              <a href="">Calendrier</a>
+              <a href="#calendar">Calendrier</a>
             </div>
             <div class="nav-item-mobile">
               <span class="icon-nav-mobile"><img src="icons/icone-parlyJO-mobile.svg" /></span>
-              <a href="">Jeux Paralympiques</a>
+              <a href="#jo-para">Jeux Paralympiques</a>
             </div>
             <div class="nav-item-mobile">
               <span class="icon-nav-mobile"><img src="icons/icon-Business-mobile.svg" /></span>
-              <a href="">Boutique</a>
+              <a href="shop.html">Boutique</a>
             </div>
             <div class="line-black"></div>
             <div class="icons-nav-bottom-mobile">
-              <span><img src="icons/icon-accessibility.svg" alt=""></span>
-              <span><img src="icons/icon-love.svg" alt=""></span>
+              <span id="icon-accessibility-mobile"><img src="icons/icon-accessibility.svg" alt="icon-accessibility"></span>
+              <span id="icon-love-mobile"><img src="icons/icon-love.svg" alt="icon-love"></span>
             </div>
             <div class="footer-nav-mobile">
               <p>&copy Jeux Olympiques 2024</p>
-              <p><a href="">/   CGU</a></p>
-              <p><a href="">/   CGV</a></p>
-              <p><a href="">/   Contact</a></p>
+              <p><a href="#cgu">/   CGU</a></p>
+              <p><a href="#cgv">/   CGV</a></p>
+              <p><a href="#contact">/   Contact</a></p>
             </div>
           </div>
         </nav>
@@ -76,7 +76,7 @@
           <img src="image/logo-etat-1.webp" alt="Logo jeux olympiques">
         </div>
         <div class="icon-shop-mobile">
-          <img class="icon-shop" src="/icons/icon-basket.svg" alt="logo panier">
+          <a href="shop.html#basket"><img class="icon-shop" src="/icons/icon-basket.svg" alt="logo panier"></a>
         </div>
       </div>
     </div>
@@ -121,28 +121,30 @@
         <ul class="nav-bar">
             <li class="nav-item">
               <span class="icon-nav icon-home"><img src="icons/home.svg" /></span>
-              <span class="text-wrapper"><a href="accueil">Accueil</a></span>
+              <span class="text-wrapper"><a href="index.html#presentation">Accueil</a></span>
             </li>
             <li class="nav-item">
               <span class="icon-nav icon-calendar"><img src="icons/calendar.svg" /></span>
-              <span class="text-wrapper"><a href="calendrier">Calendrier</a></span>
+              <span class="text-wrapper"><a href="index.html#calendar">Calendrier</a></span>
             </li>
             <li class="nav-item">
               <span class="icon-nav icon-medal"><img src="icons/medal.svg" /></span>
-              <span class="text-wrapper"><a href="medailles">Médailles</a></span>
+              <span class="text-wrapper"><a href="index.html#medal">Médailles</a></span>
             </li>
             <li class="nav-item">
               <span class="icon-nav icon-good-mement"><img src="icons/good-moment.svg" /></span>
-              <span class="text-wrapper"><a href="meilleurs-moments">Meilleurs moments</a></span>
+              <span class="text-wrapper"><a href="index.html#good-moment">Meilleurs moments</a></span>
             </li>
             <li class="nav-item">
               <span class="icon-nav icon-paralympique"><img src="icons/paralympique.svg" /></span>
-              <span class="text-wrapper"><a href="paralympiques">Paralympiques</a></span>
+              <span class="text-wrapper"><a href="#jo-para">Paralympiques</a></span>
             </li>
         </ul>
         </div>
       </div>
     </div>
+
+    
   </header>
   <!--*************   Main   *************-->
   <main>
@@ -251,7 +253,7 @@
         <div class="container-offers">
           <!--gestion js-->
         </div>
-        <div class="shop-management">
+        <div class="shop-management" id="basket">
           <div class="items-number">
             <p>
               Votre panier (<a href="">nombre d'article dans le panier</a>)

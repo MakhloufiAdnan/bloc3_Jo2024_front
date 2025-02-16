@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const ContainerOffers = document.querySelector(".container-offers");
   const ContainerPurchaseSummary = document.querySelector(".container-purchase-summary");
 
+
+  // Données fictives pour les offres test ****************************
   const typeOffer = ["Offre Solo", "Offre Duo", "Offre Famille"];
   const priceOffer = ["35€", "60€", "100€"];
   const nameTest = ["Athlétisme", "Basketball", "Cyclisme", "Football", "Golf", "Handball", "Judo", "Natation", "Tennis", "Volleyball"];
@@ -9,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const placeOfTest = ["Paris", "Lyon", "Marseille", "Bordeaux", "Toulouse", "Nantes", "Lille", "Strasbourg", "Nice", "Rennes"];
 
   let offerCount = 0; // Compteur pour générer des ID uniques
+
+  // ******************************************************************
 
   function createOfferCard() {
     let offerIndex = offerCount++; // ID unique pour chaque carte

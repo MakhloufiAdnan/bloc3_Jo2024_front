@@ -126,18 +126,12 @@
       padding: .5rem;
       gap: 1rem;
 
-      .icon-sidebar {
-        width: $icon-small;
-        height: $icon-small;
-        scale: 0.6;
-      }
-
       .box-login {
         display: flex;
         flex-direction: row;
-        gap: 2.5rem;
+        gap: .5rem;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         flex-shrink: 0;
         width: 19rem;
         height: 2.5rem;

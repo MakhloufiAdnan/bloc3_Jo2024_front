@@ -43,8 +43,6 @@ const iconTopElements = document.querySelectorAll(".icon-top");
     linkIcon.textContent = textData[index].text1;
     hoverText.appendChild(linkIcon);
 
-    console.log("textData[index].text1", textData[index].text1);//verif
-
     // Ajout d'ID spécifique pour popup sur linkIcon (text1)
     if (textData[index].text1 === "Me connecter") {
       linkIcon.id = "openPopupConnection";
@@ -52,8 +50,17 @@ const iconTopElements = document.querySelectorAll(".icon-top");
       linkIcon.id = "openPopupAccessibility";
     } else if (textData[index].text1 === "Mes Favoris") {
       linkIcon.id = "openPopupFavorites";
-    } else if (textData[index].text1 === "Mon panier") {
-      linkIcon.id = "openPopupBasket"; 
+    } 
+
+    //lien vers panier
+    if (textData[index].text1 === "Mon panier") {
+      linkIcon.id = "openMonPanier"; // Ajoute un ID (optionnel si l'élément est déjà manipulé par `linkIcon`)
+      linkIcon.href = "shop.html" + textData[index].link1; 
+    
+      // Ajoute un écouteur d'événement directement sur linkIcon
+      linkIcon.addEventListener("click", function(event) {
+        window.location.href = "shop.html" + textData[index].link1; 
+      });
     }
 
     // Création du deuxième lien si disponible
@@ -67,8 +74,6 @@ const iconTopElements = document.querySelectorAll(".icon-top");
       linkIcon2.href = textData[index].link2 || "#"; 
       linkIcon2.textContent = textData[index].text2;
       hoverText.appendChild(linkIcon2);
-
-      console.log("textData[index].text2", textData[index].text2);//verif
 
       // Ajout d'ID spécifique pour popup
       if (textData[index].text2 === "M'inscrire") {

@@ -16,15 +16,31 @@ document.addEventListener("click", (e) => {
 });
 
 // Gestion des icônes mobiles
-const userIcon = document.getElementById("icon-user-mobile");
-if (userIcon) {
-  userIcon.addEventListener("click", () => openPopup("Connexion"));
-}
+const iconsmobile = [
+  { id: "icon-user-mobile", popup: "Connexion" },
+  { id: "icon-accessibility-mobile", popup: "Accessibilité" },
+  { id: "icon-love-mobile", popup: "Mes favoris" }
+];
 
-const loveIcon = document.getElementById("icon-love-mobile");
-if (loveIcon) {
-  loveIcon.addEventListener("click", () => openPopup("Mes favoris"));
-}
+iconsmobile.forEach(({ id, popup }) => {
+  const icon = document.getElementById(id);
+  if (icon) {
+    icon.addEventListener("click", () => openPopup(popup));
+  }
+});
+
+// Gestion des liens sidebar
+const linksSideBar = [
+  { id: "login-sidebar", popup: "Connexion" },
+  { id: "incription-sidebar", popup: "Formulaire d’inscription" },
+];
+
+linksSideBar.forEach(({ id, popup }) => {
+  const linkSideBar = document.getElementById(id);
+  if (linkSideBar) {
+    linkSideBar.addEventListener("click", () => openPopup(popup));
+  }
+});
 
 function openPopup(title) {
   const popup = document.createElement("div");
@@ -53,7 +69,7 @@ function openPopup(title) {
         </div>
       </div>
       <div class="new-account">
-        <p class="link-new-account"><a href="#">Créer un compte</a></p>
+        <p class="link-new-account"><a href="#signup-form">Créer un compte</a></p>
       </div>
       <div class="social-login">
         <div class="google-btn social-btn" onclick="handleGoogleLogin()">
@@ -97,7 +113,7 @@ function openPopup(title) {
       `;
   } else if (title === "Accessibilité") {
     content = `
-      <div class="accessibility-container">
+      <div class="accessibility-container"   id="accessibility">
         <h3>Options d’accessibilité</h3>
         <ul>
           <li><button onclick="increaseFontSize()">🔍 Augmenter la taille du texte</button></li>
