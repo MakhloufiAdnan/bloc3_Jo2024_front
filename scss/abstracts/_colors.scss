@@ -60,8 +60,8 @@ $green-ring: conic-gradient(
   );
 $red-ring: conic-gradient(
     from 180deg at 50% 50%,
-    rgba(255, 6, 6, 0) 40%,
-    rgba(153, 4, 4, 1) 100%
+    rgba(199, 136, 136, .8) 0%,
+    rgb(201, 136, 136) 100%
   );
 
 // couleur sidebar

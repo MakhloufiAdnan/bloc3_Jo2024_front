@@ -234,3 +234,72 @@
     left: 24px;
   }
 }
+
+.container-btn-filters{
+  width: 60%;
+  background: $grey-light;
+  padding: .75rem 1.5rem;
+  border-radius: 1rem;
+  margin: 2rem 0 2rem 0;
+
+  .flexBox-filters{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include respond-to(desktop) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .btn-filters{
+      display:inline-flex;
+      justify-content: flex-start;
+      align-items: center;
+      white-space: nowrap;
+      scale: .75;
+      @include respond-to(desktop) {
+        scale: 1;
+      }
+
+      .btn-filter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .time-zone{
+      display:inline-flex;
+      white-space: nowrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      .text-time-zone{
+        font-size: .75rem;
+
+        @include respond-to(desktop) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.box-quantity{
+  
+  .less-btn, .more-btn, .quantity{
+    display: inline-block;
+    padding: .5rem 1rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+}
