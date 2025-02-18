@@ -1227,6 +1227,88 @@ body {
   left: 25%;
 }
 
+.offer-cards {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  justify-content: center;
+  align-items: center;
+  background: rgb(217, 217, 217);
+  border-radius: 2rem;
+  padding: 1.5rem;
+  gap: 1rem;
+  font-size: 1.25rem;
+  margin: 2rem 0 2.5rem 0;
+}
+.offer-cards .box-offers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 2rem;
+  height: 18rem;
+  margin: 1.5rem;
+}
+.offer-cards .box-offers .box-offer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.offer-cards .box-offers .box-offer .container-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.offer-cards .box-offers .box-offer .container-type .offre {
+  color: red;
+}
+.offer-cards .box-offers .box-offer .container-type .prix {
+  color: green;
+}
+.offer-cards .box-offers .box-offer .container-type .country-name {
+  display: flex;
+}
+.offer-cards .box-offers .box-offer .container-type .title-offre {
+  font-size: 1.5rem;
+}
+.offer-cards .box-offers .box-offer .container-type .test-medal {
+  background: rgb(217, 217, 217);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.offer-cards .box-offers .box-quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+}
+.offer-cards .box-offers .box-quantity .btn-quantity {
+  width: 40px;
+  height: 40px;
+  background: rgb(217, 217, 217);
+}
+.offer-cards .box-offers .box-quantity .quantity {
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  background: conic-gradient(from 180deg at 50% 50%, rgba(199, 136, 136, 0.8) 0%, rgb(201, 136, 136) 100%);
+}
+.offer-cards .container-choice-offers {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.offer-cards .container-choice-offers .offers-icons .offer-icons {
+  display: flex;
+  flex-direction: rows;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn-filter {
   position: relative;
   display: inline-block;
@@ -1697,87 +1779,6 @@ body {
 .section4 {
   margin: 0 2rem 0 2rem;
 }
-.section4 .offer-cards {
-  display: grid;
-  grid-template-columns: 70% 30%;
-  justify-content: center;
-  align-items: center;
-  background: rgb(217, 217, 217);
-  border-radius: 2rem;
-  padding: 1.5rem;
-  gap: 1rem;
-  font-size: 1.25rem;
-  margin: 2rem 0 2.5rem 0;
-}
-.section4 .offer-cards .box-offers {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2rem;
-  background: white;
-  padding: 2rem;
-  border-radius: 2rem;
-  height: 18rem;
-  margin: 1.5rem;
-}
-.section4 .offer-cards .box-offers .box-offer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.section4 .offer-cards .box-offers .box-offer .container-type {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-.section4 .offer-cards .box-offers .box-offer .container-type .offre {
-  color: red;
-}
-.section4 .offer-cards .box-offers .box-offer .container-type .prix {
-  color: green;
-}
-.section4 .offer-cards .box-offers .box-offer .container-type .country-name {
-  display: flex;
-}
-.section4 .offer-cards .box-offers .box-offer .container-type .title-offre {
-  font-size: 1.5rem;
-}
-.section4 .offer-cards .box-offers .box-offer .container-type .test-medal {
-  background: rgb(217, 217, 217);
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-}
-.section4 .offer-cards .box-offers .box-quantity {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 0.25rem;
-}
-.section4 .offer-cards .box-offers .box-quantity .btn-quantity {
-  width: 40px;
-  height: 40px;
-  background: rgb(217, 217, 217);
-}
-.section4 .offer-cards .box-offers .box-quantity .quantity {
-  width: 60px;
-  height: 40px;
-  text-align: center;
-  background: conic-gradient(from 180deg at 50% 50%, rgba(199, 136, 136, 0.8) 0%, rgb(201, 136, 136) 100%);
-}
-.section4 .offer-cards .container-choice-offers {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.section4 .offer-cards .container-choice-offers .offers-icons .offer-icons {
-  display: flex;
-  flex-direction: rows;
-  justify-content: center;
-  align-items: center;
-}
 .section4 .shop-management {
   display: flex;
   justify-content: flex-start;
@@ -1877,4 +1878,149 @@ body {
   justify-content: center;
   align-items: center;
   margin: 2rem;
+}
+
+.admin-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 80vh;
+  margin: 2rem 0 2rem 0;
+  gap: 6rem;
+}
+.admin-login .logos-admin {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 60%;
+}
+.admin-login .logos-admin .logo-admin {
+  border-radius: 1rem;
+  padding: 2rem;
+  background: rgb(217, 217, 217);
+  height: 20rem;
+  box-shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.5);
+}
+.admin-login .psw-admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+.admin-login .psw-admin .title-log {
+  font-size: 2rem;
+  border: 2px solid black;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+.admin-login .psw-admin .form-admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 50%;
+}
+.admin-login .psw-admin .form-admin .input-admin {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: 2px solid black;
+  font-size: 1.5rem;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.admin-header .admin-nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+  font-size: 1.5rem;
+}
+.admin-header .admin-nav .admin-nav-btn {
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  background: rgb(153, 153, 153);
+  box-shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+.admin-header .admin-nav .admin-nav-btn:hover {
+  background: rgba(0, 0, 0, 0.6);
+  color: black;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5rem 3rem;
+  gap: 2rem;
+}
+main .section1 .title-section {
+  font-size: 1.5rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  width: 20%;
+  text-align: center;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+}
+main .section1 .sell-offers {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+main .section1 .sell-offers .sell-offer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  gap: 2rem;
+  width: 30%;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  margin: 2rem;
+  color: white;
+}
+main .section1 .sell-offers .sell1 {
+  background: linear-gradient(270deg, rgba(67, 116, 246, 0.5) 28%, rgba(44, 76, 161, 0.75) 50%, rgb(39, 68, 144) 70%);
+}
+main .section1 .sell-offers .sell2 {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(270deg, rgba(245, 237, 49, 0.5) 28%, rgba(210, 203, 42, 0.75) 50%, rgb(143, 138, 28) 70%);
+}
+main .section1 .sell-offers .sell3 {
+  background: linear-gradient(-90deg, rgba(43, 141, 8, 0.5) 28%, rgba(43, 141, 8, 0.75) 50%, rgb(22, 74, 4) 70%);
+}
+main .section1 .chart-container {
+  width: 60%;
+}
+main .section2 .btn-menu-admin {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+main .section2 .btn-menu-admin .btn-admin {
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  background: rgb(153, 153, 153);
+  box-shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+main .section2 .btn-menu-admin .btn-admin:hover {
+  background: rgba(0, 0, 0, 0.6);
+  color: black;
+}
+main .section2 .offer-list {
+  font-size: 1.25rem;
 }/*# sourceMappingURL=main.css.map */
