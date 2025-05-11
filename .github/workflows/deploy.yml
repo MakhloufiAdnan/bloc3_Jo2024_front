@@ -1,14 +1,13 @@
-name: Deploy to Heroku
-
+# name: Deploy to Heroku Frontend
 on:
   push:
     branches:
-      - main
+      - main # Déclenchement sur push sur main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: VPS
+    # environment: Heroku
 
     steps:
       # 1. Checkout repository
@@ -32,16 +31,17 @@ jobs:
           echo "  password ${{ secrets.HEROKU_API_KEY }}" >> ~/.netrc
           heroku auth:whoami
 
-      # 4. build frontend
-      - name: Reset Docker build (prévention bug)
-        run: docker builder prune -a -f
+      # 4. build & Deploy Frontend to Heroku
+      #   run: docker builder prune -a -f
 
       - name: Build & Deploy Frontend to Heroku
         run: |
+          # Note : Cette étape 'cd frontend' implique que votre Dockerfile est à la racine du dossier 'frontend'
           echo "Contenu du répertoire frontend :"
           cd frontend && ls -la
-          heroku stack:set container --app ${{ secrets.HEROKU_APP_NAME_FE }}
+          # heroku stack:set container --app ${{ secrets.HEROKU_APP_NAME_FE }} 
           heroku container:login
+          # On build depuis le sous-dossier 'frontend' grâce au 'cd frontend'
           docker build . --platform linux/amd64 -t registry.heroku.com/${{ secrets.HEROKU_APP_NAME_FE }}/web
           docker push registry.heroku.com/${{ secrets.HEROKU_APP_NAME_FE }}/web
           heroku container:release web --app ${{ secrets.HEROKU_APP_NAME_FE }}
@@ -57,8 +57,7 @@ jobs:
           heroku config:set ENVIRONMENT=production --app ${{ secrets.HEROKU_APP_NAME_FE }}
 
       # Stop dynos : avoid fees
-      - name: Stop Heroku Dynos
-        if: ${{ false }} # désactivé par défaut
-        run: |
-          heroku ps:scale web=0 --app ${{ secrets.HEROKU_APP_NAME_BE }}
-          heroku ps:scale web=0 --app ${{ secrets.HEROKU_APP_NAME_FE }}
+      # - name: Stop Heroku Dynos
+      #   if: ${{ false }} # désactivé par défaut
+      #   run: |
+      #     heroku ps:scale web=0 --app ${{ secrets.HEROKU_APP_NAME_FE }} 
