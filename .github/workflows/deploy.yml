@@ -1,0 +1,64 @@
+name: Deploy to Heroku
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: VPS
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Install Heroku CLI
+      - name: Install Heroku CLI
+        run: |
+          curl https://cli-assets.heroku.com/install.sh | sh
+          heroku --version
+
+      # 3. Set up Heroku authentication
+      - name: Set up Heroku auth
+        run: |
+          echo "machine api.heroku.com" > ~/.netrc
+          echo "  login ${{ secrets.HEROKU_EMAIL }}" >> ~/.netrc
+          echo "  password ${{ secrets.HEROKU_API_KEY }}" >> ~/.netrc
+          echo "machine git.heroku.com" >> ~/.netrc
+          echo "  login ${{ secrets.HEROKU_EMAIL }}" >> ~/.netrc
+          echo "  password ${{ secrets.HEROKU_API_KEY }}" >> ~/.netrc
+          heroku auth:whoami
+
+      # 4. build frontend
+      - name: Reset Docker build (prévention bug)
+        run: docker builder prune -a -f
+
+      - name: Build & Deploy Frontend to Heroku
+        run: |
+          echo "Contenu du répertoire frontend :"
+          cd frontend && ls -la
+          heroku stack:set container --app ${{ secrets.HEROKU_APP_NAME_FE }}
+          heroku container:login
+          docker build . --platform linux/amd64 -t registry.heroku.com/${{ secrets.HEROKU_APP_NAME_FE }}/web
+          docker push registry.heroku.com/${{ secrets.HEROKU_APP_NAME_FE }}/web
+          heroku container:release web --app ${{ secrets.HEROKU_APP_NAME_FE }}
+
+      # Show Frontend Heroku logs
+      - name: Show Frontend Heroku logs
+        run: heroku logs --app ${{ secrets.HEROKU_APP_NAME_FE }} --num 100
+
+      # Set frontend Heroku config vars
+      - name: Set Frontend Heroku config vars
+        run: |
+          heroku config:set API_BASE_URL=https://${{ secrets.HEROKU_APP_NAME_BE }}.herokuapp.com --app ${{ secrets.HEROKU_APP_NAME_FE }}
+          heroku config:set ENVIRONMENT=production --app ${{ secrets.HEROKU_APP_NAME_FE }}
+
+      # Stop dynos : avoid fees
+      - name: Stop Heroku Dynos
+        if: ${{ false }} # désactivé par défaut
+        run: |
+          heroku ps:scale web=0 --app ${{ secrets.HEROKU_APP_NAME_BE }}
+          heroku ps:scale web=0 --app ${{ secrets.HEROKU_APP_NAME_FE }}
