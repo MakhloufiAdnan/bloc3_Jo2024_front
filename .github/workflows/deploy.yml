@@ -1,13 +1,13 @@
-# name: Deploy to Heroku Frontend
+name: Deploy to Heroku Frontend
+
 on:
   push:
     branches:
-      - main # Déclenchement sur push sur main
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # environment: Heroku
 
     steps:
       # 1. Checkout repository
@@ -22,42 +22,50 @@ jobs:
 
       # 3. Set up Heroku authentication
       - name: Set up Heroku auth
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
         run: |
           echo "machine api.heroku.com" > ~/.netrc
-          echo "  login ${{ secrets.HEROKU_EMAIL }}" >> ~/.netrc
-          echo "  password ${{ secrets.HEROKU_API_KEY }}" >> ~/.netrc
-          echo "machine git.heroku.com" >> ~/.netrc
-          echo "  login ${{ secrets.HEROKU_EMAIL }}" >> ~/.netrc
-          echo "  password ${{ secrets.HEROKU_API_KEY }}" >> ~/.netrc
+          echo " login $HEROKU_EMAIL" >> ~/.netrc
+          echo " password $HEROKU_API_KEY" >> ~/.netrc
+          echo " machine git.heroku.com" >> ~/.netrc
+          echo " login $HEROKU_EMAIL" >> ~/.netrc
+          echo " password $HEROKU_API_KEY" >> ~/.netrc
           heroku auth:whoami
 
-      # 4. build & Deploy Frontend to Heroku
-      #   run: docker builder prune -a -f
-
+      # 4. Build & Deploy Frontend to Heroku
       - name: Build & Deploy Frontend to Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_APP_NAME_FE: ${{ secrets.HEROKU_APP_NAME_FE }}
         run: |
-          # Note : Cette étape 'cd frontend' implique que votre Dockerfile est à la racine du dossier 'frontend'
-          echo "Contenu du répertoire frontend :"
-          cd frontend && ls -la
-          # heroku stack:set container --app ${{ secrets.HEROKU_APP_NAME_FE }} 
+          cd frontend
+          echo "Contenu de frontend :"
+          ls -la
           heroku container:login
-          # On build depuis le sous-dossier 'frontend' grâce au 'cd frontend'
-          docker build . --platform linux/amd64 -t registry.heroku.com/${{ secrets.HEROKU_APP_NAME_FE }}/web
-          docker push registry.heroku.com/${{ secrets.HEROKU_APP_NAME_FE }}/web
-          heroku container:release web --app ${{ secrets.HEROKU_APP_NAME_FE }}
+          docker build . --platform linux/amd64 -t registry.heroku.com/$HEROKU_APP_NAME_FE/web
+          docker push registry.heroku.com/$HEROKU_APP_NAME_FE/web
+          heroku container:release web --app $HEROKU_APP_NAME_FE
 
-      # Show Frontend Heroku logs
-      - name: Show Frontend Heroku logs
-        run: heroku logs --app ${{ secrets.HEROKU_APP_NAME_FE }} --num 100
-
-      # Set frontend Heroku config vars
+      # 5. Set Frontend Heroku config vars
       - name: Set Frontend Heroku config vars
+        env:
+          HEROKU_APP_NAME_FE: ${{ secrets.HEROKU_APP_NAME_FE }}
+          HEROKU_APP_NAME_BE: ${{ secrets.HEROKU_APP_NAME_BE }}
         run: |
-          heroku config:set API_BASE_URL=https://${{ secrets.HEROKU_APP_NAME_BE }}.herokuapp.com --app ${{ secrets.HEROKU_APP_NAME_FE }}
-          heroku config:set ENVIRONMENT=production --app ${{ secrets.HEROKU_APP_NAME_FE }}
+          heroku config:set API_BASE_URL=https://${HEROKU_APP_NAME_BE}.herokuapp.com --app $HEROKU_APP_NAME_FE
+          heroku config:set ENVIRONMENT=production --app $HEROKU_APP_NAME_FE
 
-      # Stop dynos : avoid fees
-      # - name: Stop Heroku Dynos
-      #   if: ${{ false }} # désactivé par défaut
-      #   run: |
-      #     heroku ps:scale web=0 --app ${{ secrets.HEROKU_APP_NAME_FE }} 
+      # 6. Show Frontend Heroku logs (utile pour déboguer)
+      - name: Show Frontend Heroku logs
+        env:
+          HEROKU_APP_NAME_FE: ${{ secrets.HEROKU_APP_NAME_FE }}
+        run: |
+          heroku logs --app $HEROKU_APP_NAME_FE --num 100
+
+      # Stop Heroku Dynos (désactivé par défaut)
+      - name: Stop Heroku Dynos
+        if: ${{ false }} # Active en changeant en 'true'
+        run: |
+          heroku ps:scale web=0 --app ${{ secrets.HEROKU_APP_NAME_FE }}
