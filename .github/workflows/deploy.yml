@@ -27,11 +27,12 @@ jobs:
           HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
         run: |
           echo "machine api.heroku.com" > ~/.netrc
-          echo " login $HEROKU_EMAIL" >> ~/.netrc
-          echo " password $HEROKU_API_KEY" >> ~/.netrc
-          echo " machine git.heroku.com" >> ~/.netrc
-          echo " login $HEROKU_EMAIL" >> ~/.netrc
-          echo " password $HEROKU_API_KEY" >> ~/.netrc
+          echo "  login $HEROKU_EMAIL" >> ~/.netrc
+          echo "  password $HEROKU_API_KEY" >> ~/.netrc
+          echo "machine git.heroku.com" >> ~/.netrc
+          echo "  login $HEROKU_EMAIL" >> ~/.netrc
+          echo "  password $HEROKU_API_KEY" >> ~/.netrc
+          chmod 600 ~/.netrc
           heroku auth:whoami
 
       # 4. Build & Deploy Frontend to Heroku
