@@ -10,25 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Install Docker (si non présent)
-      - name: Install Docker
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io
-          docker --version
-
-      # 3. Install Heroku CLI
       - name: Install Heroku CLI
         run: |
           curl https://cli-assets.heroku.com/install.sh | sh
           heroku --version
 
-      # 4. Set up Heroku authentication
-      - name: Set up Heroku auth
+      - name: Set up Heroku authentication
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
         run: |
           echo "machine api.heroku.com" > ~/.netrc
           echo "  login $HEROKU_EMAIL" >> ~/.netrc
@@ -38,32 +31,38 @@ jobs:
           echo "  password $HEROKU_API_KEY" >> ~/.netrc
           chmod 600 ~/.netrc
           heroku auth:whoami
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
 
-      # 5. Clean Docker builder cache (optionnel mais conseillé)
-      - name: Clean Docker builder cache
+      - name: Clean Docker builder cache (optional)
         run: docker builder prune -a -f
 
-      # 6. Build & Deploy Frontend Docker image to Heroku
-      - name: Build & Deploy Frontend
+      - name: Build & Deploy Frontend to Heroku
+        env:
+          HEROKU_APP_NAME_FE: ${{ secrets.HEROKU_APP_NAME_FE }}
         run: |
           cd frontend
-          heroku stack:set container --app ${{ secrets.HEROKU_APP_NAME_FE }}
+          heroku stack:set container --app $HEROKU_APP_NAME_FE
           heroku container:login
-          docker build . --platform linux/amd64 -t registry.heroku.com/${{ secrets.HEROKU_APP_NAME_FE }}/web
-          docker push registry.heroku.com/${{ secrets.HEROKU_APP_NAME_FE }}/web
-          heroku container:release web --app ${{ secrets.HEROKU_APP_NAME_FE }}
+          docker build . --platform linux/amd64 -t registry.heroku.com/$HEROKU_APP_NAME_FE/web
+          docker push registry.heroku.com/$HEROKU_APP_NAME_FE/web
+          heroku container:release web --app $HEROKU_APP_NAME_FE
 
-      # 7. Set Heroku config vars for frontend app
       - name: Set Frontend Heroku config vars
+        env:
+          HEROKU_APP_NAME_FE: ${{ secrets.HEROKU_APP_NAME_FE }}
+          HEROKU_APP_NAME_BE: ${{ secrets.HEROKU_APP_NAME_BE }}
         run: |
           heroku config:set \
-            API_BASE_URL=https://${{ secrets.HEROKU_APP_NAME_BE }}.herokuapp.com \
+            API_BASE_URL=https://${HEROKU_APP_NAME_BE}.herokuapp.com \
             ENVIRONMENT=production \
-            --app ${{ secrets.HEROKU_APP_NAME_FE }}
+            --app $HEROKU_APP_NAME_FE
 
-      # 8. Show Heroku logs (optionnel, pour debug)
-      - name: Show Frontend Heroku logs
-        run: heroku logs --app ${{ secrets.HEROKU_APP_NAME_FE }} --num 100
+      - name: Show Frontend Heroku logs (optional)
+        env:
+          HEROKU_APP_NAME_FE: ${{ secrets.HEROKU_APP_NAME_FE }}
+        run: heroku logs --app $HEROKU_APP_NAME_FE --num 100
+
+      # Stop Heroku Dynos (désactivé par défaut)
+      - name: Stop Heroku Dynos
+        if: ${{ false }} # Active en changeant en 'true'
+        run: |
+          heroku ps:scale web=0 --app ${{ secrets.HEROKU_APP_NAME_FE }}
