@@ -1957,14 +1957,14 @@ body {
   color: black;
 }
 
-main {
+.admin-login {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 5rem 3rem;
   gap: 2rem;
 }
-main .section1 .title-section {
+.admin-login .section1 .title-section {
   font-size: 1.5rem;
   border: 2px solid black;
   border-radius: 1rem;
@@ -1973,12 +1973,12 @@ main .section1 .title-section {
   padding: 0.5rem;
   margin-bottom: 2rem;
 }
-main .section1 .sell-offers {
+.admin-login .section1 .sell-offers {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
-main .section1 .sell-offers .sell-offer {
+.admin-login .section1 .sell-offers .sell-offer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1992,35 +1992,35 @@ main .section1 .sell-offers .sell-offer {
   margin: 2rem;
   color: white;
 }
-main .section1 .sell-offers .sell1 {
+.admin-login .section1 .sell-offers .sell1 {
   background: linear-gradient(270deg, rgba(67, 116, 246, 0.5) 28%, rgba(44, 76, 161, 0.75) 50%, rgb(39, 68, 144) 70%);
 }
-main .section1 .sell-offers .sell2 {
+.admin-login .section1 .sell-offers .sell2 {
   background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(270deg, rgba(245, 237, 49, 0.5) 28%, rgba(210, 203, 42, 0.75) 50%, rgb(143, 138, 28) 70%);
 }
-main .section1 .sell-offers .sell3 {
+.admin-login .section1 .sell-offers .sell3 {
   background: linear-gradient(-90deg, rgba(43, 141, 8, 0.5) 28%, rgba(43, 141, 8, 0.75) 50%, rgb(22, 74, 4) 70%);
 }
-main .section1 .chart-container {
+.admin-login .section1 .chart-container {
   width: 60%;
 }
-main .section2 .btn-menu-admin {
+.admin-login .section2 .btn-menu-admin {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 4rem;
 }
-main .section2 .btn-menu-admin .btn-admin {
+.admin-login .section2 .btn-menu-admin .btn-admin {
   padding: 1rem 2rem;
   border-radius: 1rem;
   background: rgb(153, 153, 153);
   box-shadow: 3px 4px 5px 2px rgba(0, 0, 0, 0.5);
   color: white;
 }
-main .section2 .btn-menu-admin .btn-admin:hover {
+.admin-login .section2 .btn-menu-admin .btn-admin:hover {
   background: rgba(0, 0, 0, 0.6);
   color: black;
 }
-main .section2 .offer-list {
+.admin-login .section2 .offer-list {
   font-size: 1.25rem;
 }/*# sourceMappingURL=main.css.map */
