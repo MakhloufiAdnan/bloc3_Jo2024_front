@@ -1,7 +1,8 @@
+// Base données pour les cartes de la section 1 (présumée)
 const imageCardsNews = ["image-seine-paris.jpg", "village-olympique.jpg", "nouveaux-sports.jpg", "police-jo.jpg"];
 const textDataCardsNews = [
   { title: "la Seine sera le théâtre de la cérémonie d\’ouverture des Jeux devant 600 000 personnes.", 
-    paragraph: "Les organisateurs ont dévoilé, lundi 13 décembre, leur concept de « Seine olympique » : les 10 500 athlètes défileront, le 26 juillet 2024, sur des bateaux, devant les spectateurs massés sur les quais du fleuve parisien. La cérémonie d\’ouverture des Jeux olympiques de Paris 2024 s\’annonce spectaculaire, grandiose, unique. C\’est en tout cas ce que promettent les images dévoilées lundi 13 décembre par le Comité d\’organisation (COJO) de Paris 2024. Le 26 juillet 2024, pour la première fois de l\’histoire olympique, une cérémonie d\’ouverture se déroulera hors d\’un stade. Ce n\’est pas une surprise : Tony Estanguet, le patron de Paris 2024, l\’avait dit au Monde début 2021, révélant alors que la Seine serait le fil conducteur de l\’événement." },
+    paragraph: "Les organisateurs ont dévoilé, lundi 13 décembre, leur concept de « Seine olympique » : les 10 500 athlètes défileront, le 26 juillet 2024, sur des bateaux, devant les spectateurs massés sur les quais du fleuve parisien. La cérémonie d\’ouverture des Jeux olympiques de Paris 2024 s\’annonce spectaculaire, grandiose, unique. C\’est en tout cas ce que promettent les images dévoilées lundi 13 décembre par le Comité d\’organisation (COJO) de Paris 2024. Le 26 juillet 2024, pour la première fois de l\’histoire olympique, une cérémonie d\’ouverture se déroulera hors d\’un stade. Ce n\’est pas une surprise : Tony Estanguet, le patron de Paris 2024, l\’avait dit au Monde début 2021, révélant alors que la Seine serait le fil conducteur de l\’événement." },
 
   { title: "Paris 2024 : le village des athlètes, grand test du bâtiment réversible.", 
     paragraph: "A la lisière de Saint-Denis, de L'Ile-Saint-Denis et de Saint-Ouen, une forêt de grues a investi le site qui accueillera, à l'été 2024, les 14.250 athlètes attendus pour les Jeux Olympiques. Si la plupart des bâtiments sortent à peine de terre, d'autres - après un an de travaux -, ont déjà plusieurs étages. Le site grouille d'ouvriers (ils sont environ 1.400) allant et venant sur les trois parcelles du futur village. L'intérêt de ce projet est d'avoir prévu des bâtiments réversibles, qui pourront changer d'usage et bénéficier d'une seconde vie une fois les médailles distribuées. En France, cela n'avait jamais été réalisé à une telle échelle." },
@@ -36,9 +37,16 @@ if (!cardsNews) {
 
     // Ajout de l'image
     const img = document.createElement("img");
-    img.src = `/dist/assets/image/${imageSrc}`;
+    // CHEMIN CORRIGÉ ICI :
+    img.src = `/assets/image/${imageSrc}`; 
     img.alt = textDataCardsNews[index].title;
     img.classList.add("img-card-news");
+    // Optionnel: ajouter une image de remplacement en cas d'erreur de chargement
+    img.onerror = () => {
+        console.error(`Image non trouvée: ${img.src}. Vérifiez le nom du fichier et le chemin.`);
+        img.src = "/assets/image/default-placeholder.jpg"; // Assurez-vous d'avoir une image placeholder à cet endroit
+        img.alt = "Image non disponible";
+    };
     card.appendChild(img);
 
     // Ajout du titre

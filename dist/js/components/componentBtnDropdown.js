@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
     dropdownButton.className = "dropdown-button";
     const dropdownIcon = document.createElement("img");
     dropdownIcon.className = "dropdown-icon";
-    dropdownIcon.src = "/dist/assets/icons/btn-up-white.svg";
+    // CHEMIN CORRIGÉ ICI :
+    dropdownIcon.src = "/assets/icons/btn-up-white.svg"; 
     dropdownIcon.alt = "Chevron";
 
     if (dropdownContainer.classList.contains("btn-filter-countries")) {
@@ -63,7 +64,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     dropdownMenu.addEventListener("click", function (event) {
       if (event.target.classList.contains("dropdown-item")) {
-        dropdownButton.firstChild.textContent = event.target.textContent;
+        // S'assurer que firstChild est bien le nœud texte avant d'accéder à textContent
+        if (dropdownButton.firstChild && dropdownButton.firstChild.nodeType === Node.TEXT_NODE) {
+            dropdownButton.firstChild.textContent = event.target.textContent + " "; // Ajoute un espace avant l'icône
+        } else {
+            // Si le premier enfant n'est pas un nœud texte (par exemple, si innerHTML a été vidé puis l'icône ajoutée)
+            // On reconstruit le contenu texte avant l'icône
+            dropdownButton.insertBefore(document.createTextNode(event.target.textContent + " "), dropdownIcon);
+        }
         dropdownMenu.classList.add("hidden");
         dropdownIcon.style.transform = "rotate(0deg)";
       }

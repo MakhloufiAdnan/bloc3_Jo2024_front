@@ -1,5 +1,5 @@
-import { isAuthenticated, logout } from '/dist/js/api/authUtils.js'; 
-import { getFavorites } from '/dist/js/pages/favoriteService.js';
+import { isAuthenticated, logout } from '/js/api/authUtils.js';
+import { getFavorites } from '/js/pages/favoriteService.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const popupMapping = {
@@ -82,10 +82,14 @@ document.addEventListener("DOMContentLoaded", () => {
         disconnectedSection.style.display = "none";
 
         // Ajouter un événement pour la déconnexion
-        logoutBtn.addEventListener("click", () => {
-          logout(); // Déconnecte l'utilisateur
-          updatePopupConnection('popup-Connection'); // Met à jour l'affichage de la popup
-        });
+        // S'assurer que l'event listener n'est ajouté qu'une seule fois ou est nettoyé
+        if (!logoutBtn.dataset.listenerAttached) { // Simple flag pour éviter les listeners multiples
+            logoutBtn.addEventListener("click", () => {
+                logout(); // Déconnecte l'utilisateur
+                updatePopupConnection('popup-Connection'); // Met à jour l'affichage de la popup
+            });
+            logoutBtn.dataset.listenerAttached = 'true';
+        }
       } else {
         // Afficher la section déconnectée
         connectedSection.style.display = "none";

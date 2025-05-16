@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const ContainerOffers = document.querySelector(".container-offers");
   const ContainerPurchaseSummary = document.querySelector(".container-purchase-summary");
 
-
   // Données fictives pour les offres test ****************************
   const typeOffer = ["Offre Solo", "Offre Duo", "Offre Famille"];
   const priceOffer = ["35€", "60€", "100€"];
@@ -47,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             <div class="test-medal">
               <div id="medal">
-                <img src="/dist/assets/icons/medal-gold.svg" alt="icon-medal">
+                <img src="/assets/icons/medal-gold.svg" alt="icon-medal"> {/* Chemin corrigé */}
               </div>
             </div>
           </div>
@@ -67,9 +66,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="offers-icons">
           <p>Choix de l'offre</p>
           <div class="offer-icons">
-            <img class="offer-icon" src="dist/assets/icons/icon-1ticket.svg" alt="Icone de l'offre solo">
-            <img class="offer-icon" src="dist/assets/icons/icon-2tickets.svg" alt="Icone de l'offre duo">
-            <img class="offer-icon" src="dist/assets/icons/icon-4tickets.svg" alt="Icone de l'offre famille">
+            <img class="offer-icon" src="/assets/icons/icon-1ticket.svg" alt="Icone de l'offre solo"> {/* Chemin corrigé */}
+            <img class="offer-icon" src="/assets/icons/icon-2tickets.svg" alt="Icone de l'offre duo"> {/* Chemin corrigé */}
+            <img class="offer-icon" src="/assets/icons/icon-4tickets.svg" alt="Icone de l'offre famille"> {/* Chemin corrigé */}
           </div>
         </div>
         <div class="box-quantity">
@@ -128,7 +127,26 @@ document.addEventListener("DOMContentLoaded", function () {
     ContainerPurchaseSummary.appendChild(purchaseSummary);
   }
 
-  // Générer une carte au chargement
-  createOfferCard();
-  createPurchaseSummary(0);
+  // Générer une carte au chargement (s'il y a un conteneur pour les offres)
+  if (ContainerOffers) {
+    createOfferCard();
+    // Optionnel: créer un résumé d'achat pour la première carte si nécessaire
+    // if (ContainerPurchaseSummary && offerCount > 0) {
+    //   createPurchaseSummary(0); 
+    // }
+  } else {
+    console.warn("Element '.container-offers' non trouvé. Aucune carte d'offre ne sera générée.");
+  }
+  
+  // Appel initial pour createPurchaseSummary(0) :
+  // Cet appel pourrait causer une erreur si createOfferCard() n'a pas encore été appelé
+  // ou si l'élément avec l'ID 0 n'existe pas encore.
+  // Il est préférable de l'appeler seulement après qu'une offre a été ajoutée au panier.
+  // Pour l'instant, je le commente ou le conditionne.
+  // Si vous voulez un résumé initial pour la première carte générée:
+  if (ContainerPurchaseSummary && document.getElementById(`name-test-0`)) { // Vérifie que l'offre 0 existe
+     //createPurchaseSummary(0); // Décommentez si vous voulez ce comportement
+  }
+
+
 });

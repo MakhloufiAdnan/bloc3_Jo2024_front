@@ -26,7 +26,8 @@ const iconTopElements = document.querySelectorAll(".icon-top");
     const hoverIconTop = document.createElement("div");
     hoverIconTop.classList.add("hover-icon-top");
     const hoverIconImage = document.createElement("img");
-    hoverIconImage.src = `/dist/assets/icons/${iconTop[index]}`;
+    // CHEMIN CORRIGÉ ICI :
+    hoverIconImage.src = `/assets/icons/${iconTop[index]}`; 
     hoverIconImage.alt = iconTop[index].replace(".svg", "");
     hoverIconImage.classList.add("icon");
     hoverIconTop.appendChild(hoverIconImage);
@@ -54,12 +55,16 @@ const iconTopElements = document.querySelectorAll(".icon-top");
 
     //lien vers panier
     if (textData[index].text1 === "Mon panier") {
-      linkIcon.id = "openMonPanier"; // Ajoute un ID (optionnel si l'élément est déjà manipulé par `linkIcon`)
-      linkIcon.href = "shop.html" + textData[index].link1; 
+      linkIcon.id = "openMonPanier"; // ID pour le lien panier
+      // CHEMIN CORRIGÉ ICI :
+      const shopLink = "/pages/shop.html" + (textData[index].link1 || ""); // Assure que link1 existe, sinon ancre simple
+      linkIcon.href = shopLink; 
     
-      // Ajoute un écouteur d'événement directement sur linkIcon
+      // L'event listener n'est pas strictement nécessaire si href est correct,
+      // mais si vous le gardez, corrigez aussi le chemin ici.
       linkIcon.addEventListener("click", function(event) {
-        window.location.href = "shop.html" + textData[index].link1; 
+        event.preventDefault(); // Empêche le comportement par défaut du lien si vous naviguez manuellement
+        window.location.href = shopLink; 
       });
     }
 
@@ -90,7 +95,10 @@ const iconTopElements = document.querySelectorAll(".icon-top");
       hoverIcons.style.opacity = "1";
       hoverIcons.style.visibility = "visible";
       hoverIcons.style.pointerEvents = "auto";
-      iconElement.querySelector("img").style.opacity = "0"; 
+      const imgInIconElement = iconElement.querySelector("img");
+      if (imgInIconElement) {
+          imgInIconElement.style.opacity = "0"; 
+      }
     });
 
     iconElement.addEventListener("mouseleave", () => {
@@ -98,7 +106,10 @@ const iconTopElements = document.querySelectorAll(".icon-top");
         hoverIcons.style.opacity = "0";
         hoverIcons.style.visibility = "hidden";
         hoverIcons.style.pointerEvents = "none";
-        iconElement.querySelector("img").style.opacity = "1"; 
+        const imgInIconElement = iconElement.querySelector("img");
+        if (imgInIconElement) {
+            imgInIconElement.style.opacity = "1"; 
+        }
       }, 200);
     });
 
@@ -111,7 +122,10 @@ const iconTopElements = document.querySelectorAll(".icon-top");
         hoverIcons.style.opacity = "0";
         hoverIcons.style.visibility = "hidden";
         hoverIcons.style.pointerEvents = "none";
-        iconElement.querySelector("img").style.opacity = "1"; 
+        const imgInIconElement = iconElement.querySelector("img");
+        if (imgInIconElement) {
+            imgInIconElement.style.opacity = "1";
+        }
       }, 200);
     });
   });
