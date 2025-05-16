@@ -33,7 +33,7 @@ http {
             access_log off;
         }
 
-        # Pour les fichiers dans le dossier 'pages'
+        # Pour les fichiers dans le dossier 'pages' (ex: /pages/shop.html)
         location /pages/ {
             alias /usr/share/nginx/html/pages/;
             try_files $uri $uri/ =404; # S'assure que le fichier existe
@@ -53,8 +53,7 @@ http {
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header X-Forwarded-Proto $scheme; # Important si backend est en HTTPS
 
-            error_page 502 /api-error.html; # Page d'erreur personnalisée pour l'API 
-            # Vous devrez créer api-error.html dans /usr/share/nginx/html si vous l'utilisez
+            error_page 502 /api-error.html; # Page d'erreur personnalisée pour l'API (optionnel)
         }
 
         # Configuration Gzip 
@@ -63,12 +62,11 @@ http {
         gzip_min_length 1000;
         gzip_vary on;
         gzip_proxied any;
-
-        Optimisations pour les assets statiques 
+        
         location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
-          expires 1d;
-           access_log off;
-           log_not_found off;
+             expires 1d;
+             access_log off;
+             log_not_found off;
         }
     }
 }
