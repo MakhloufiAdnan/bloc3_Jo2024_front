@@ -49,7 +49,6 @@ jobs:
       # 6. Build & Deploy Frontend to Heroku
       - name: Build & Deploy Frontend
         run: |
-          cd frontend
           heroku stack:set container --app ${{ secrets.HEROKU_APP_NAME_FE }}
           heroku container:login
           docker build . --platform linux/amd64 -t registry.heroku.com/${{ secrets.HEROKU_APP_NAME_FE }}/web
