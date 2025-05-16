@@ -8,6 +8,7 @@ on:
 jobs:
   deploy-frontend:
     runs-on: ubuntu-latest
+    environment: Heroku_front
 
     steps:
       # 1. Checkout repository
