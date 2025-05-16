@@ -4,40 +4,40 @@ FROM node:lts-alpine3.21 AS build
 # Définir le répertoire de travail
 WORKDIR /app
 
-# Copier les fichiers package
+# Copier le package.json et package-lock.json
 COPY package.json package-lock.json ./
 
-# Installer les dépendances
+#Installer les dépendances du projet
 RUN npm install
 
-# Installer Sass globalement
+# Installer sass globalement
 RUN npm install -g sass
 
-# Copier tous les fichiers source
+# Copier tous les fichiers source du frontend
 COPY . .
 
-# Compiler le SCSS
-RUN mkdir -p dist/css && npm run build-css
+# Créer le dossier dist/css avant de compiler le SCSS
+RUN mkdir -p dist/css || (echo "Build CSS failed" && exit 1)
+RUN npm run build-css || (echo "Frontend build failed" && exit 1)
 
-# Étape 2 : Configurer le serveur Nginx
+# Étape 2 : Configurer le serveur Nginx pour servir les fichiers compilés
 FROM nginx:stable-alpine3.20
 
-# Copier le script d'initialisation et le rendre exécutable
-COPY init.sh /init.sh
-RUN chmod +x /init.sh
-
-# Copier le template de configuration nginx
+# script d'entrée + config template
 COPY nginx/nginx.conf.template /etc/nginx/nginx.conf.template
 
-# Copier les fichiers compilés
+COPY nginx/init.sh /init.sh
+RUN chmod +x /init.sh
+
+# Copier les fichiers compilés dans Nginx (tout le dossier dist)
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Exposer le port
+# Exposer le port 80 pour accéder à l'application
 EXPOSE 80
 
-# Healthcheck basique
+# Healthcheck basique nginx
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
 CMD wget --spider -q http://localhost || exit 1
 
-# Démarrer nginx via script d’entrée
+# Lancement dynamique
 ENTRYPOINT ["/init.sh"]
