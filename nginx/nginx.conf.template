@@ -1,6 +1,3 @@
-env API_BASE_URL;
-env PORT;
-
 worker_processes auto;
 
 events {
@@ -15,21 +12,17 @@ http {
         listen ${PORT};
         server_name localhost;
 
-        # Dossier racine du frontend
         root /usr/share/nginx/html;
         index index.html;
 
-        # Gestion des fichiers CSS
         location /css/ {
             alias /usr/share/nginx/html/css/;
         }
 
-        # Gestion des fichiers JS
         location /js/ {
             alias /usr/share/nginx/html/js/;
         }
 
-        # Gestion des fichiers d'images
         location /assets/ {
             alias /usr/share/nginx/html/assets/;
         }
@@ -48,7 +41,6 @@ http {
             error_page 502 /api-error.html;
         }
 
-        # Cache pour les fichiers statiques (CSS, JS, images)
         location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
             expires 1d;
             access_log off;
