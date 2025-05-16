@@ -26,7 +26,11 @@ FROM nginx:stable-alpine3.20
 # script d'entrée + config template
 COPY nginx/nginx.conf.template /etc/nginx/nginx.conf.template
 
-COPY nginx/init.sh /init.sh
+# Ajoute la variable d'environnement à exposer à Nginx
+ENV API_BASE_URL=localhost:8080
+ENV ENVIRONMENT=development
+
+COPY init.sh /init.sh
 RUN chmod +x /init.sh
 
 # Copier les fichiers compilés dans Nginx (tout le dossier dist)
