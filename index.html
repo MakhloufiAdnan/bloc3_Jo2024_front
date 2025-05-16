@@ -1,20 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!--*************  Scripts  *************-->  
-  <script src="script Js/componentIconsTopHeader.js" defer></script>
-  <script src="script Js/managmentPopUps.js" defer></script>
-  <script src="script Js/accessibility.js" defer></script>
-  <script src="script Js/carousels.js" defer></script>
-  <script src="script Js/componentCardsNews.js" defer></script>
-  <script src="script Js/componentCardsNewsFeed.js" defer></script>
-  <script src="script Js/animationSideBare.js" defer></script>
-  <script src="script Js/componentBtnDropdown.js" defer></script>
+
+  <!--*************  Scripts  *************-->
+  <script src="/dist/js/components/carousels.js" defer></script>
+  <script src="/dist/js/components/componentCardsNews.js" defer></script>
+  <script src="/dist/js/components/componentCardsNewsFeed.js" defer></script>
+  <script src="/dist/js/components/componentBtnDropdown.js" defer></script>
+  <script src="/dist/js/pages/animationSideBare.js" defer></script>
+  <script src="/dist/js/pages/accessibility.js" defer></script>
+  <script src="/dist/js/pages/animationBurgerMenu.js" defer></script>
+  <script src="/dist/js/components/componentIconsTopHeader.js" defer></script>
+  <script type="module" src="/dist/js/pages/favoriteService.js" defer></script>
+  <script type="module" src="/dist/js/api/authService.js" defer></script>
+  <script type="module" src="/dist/js/api/authUtils.js" defer></script>
+  <script type="module" src="/dist/js/api/register.js" defer></script>
+  <script type="module" src="/dist/js/components/managmentPopUps.js" defer></script>
+
   <!--*************  Links  *************-->
-  <link rel="stylesheet" href="/scss/main.css">
+  <link rel="stylesheet" href="/dist/scss/main.css">
   <title>Jeux Olympique 2024-Bloc3</title>
 </head>
 
@@ -34,40 +40,40 @@
             <div class="search">
               <div class="search-bar-mobile">
                 <div class="div-search-mobile"></div>
-                <div><img class="icon-search-mobile" src="icons/icon-search-svg.svg" /></div>
+                <div><img class="icon-search-mobile" src="/dist/assets/icons/icon-search-svg.svg" /></div>
               </div>
             </div>
             <div class="line-white"></div>
-            <div id="icon-user-mobile"><img src="icons/icon-user-mobile.svg" alt="icon-user"></div>
+            <div id="icon-user-mobile"><img src="/dist/assets/icons/icon-user-mobile.svg" alt="icon-user"></div>
             <div class="line-white"></div>
             <div class="nav-item-mobile nav-item-active">
-              <span class="icon-nav-mobile"><img src="icons/icon-home-mobile.svg" /></span>
+              <span class="icon-nav-mobile"><img src="/dist/assets/icons/icon-home-mobile.svg" /></span>
               <span><a href="#presentation">Accueil</a></span>
             </div>
             <div class="nav-item-mobile">
-              <span class="icon-nav-mobile"><img src="icons/icon-moment-mobile.svg" /></span>
+              <span class="icon-nav-mobile"><img src="/dist/assets/icons/icon-moment-mobile.svg" /></span>
               <span><a href="#good-moment">Meilleurs moments</a></span>
             </div>
             <div class="nav-item-mobile">
-              <span class="icon-nav-mobile"><img src="icons/icon-medal-mobile.svg" /></span>
+              <span class="icon-nav-mobile"><img src="/dist/assets/icons/icon-medal-mobile.svg" /></span>
               <a href="#medal">Médailles</a>
             </div>
             <div class="nav-item-mobile">
-              <span class="icon-nav-mobile"><img src="icons/icone-calendar-mobile.svg" /></span>
+              <span class="icon-nav-mobile"><img src="/dist/assets/icons/icone-calendar-mobile.svg" /></span>
               <a href="#calendar">Calendrier</a>
             </div>
             <div class="nav-item-mobile">
-              <span class="icon-nav-mobile"><img src="icons/icone-parlyJO-mobile.svg" /></span>
+              <span class="icon-nav-mobile"><img src="/dist/assets/icons/icone-parlyJO-mobile.svg" /></span>
               <a href="#jo-para">Jeux Paralympiques</a>
             </div>
             <div class="nav-item-mobile">
-              <span class="icon-nav-mobile"><img src="icons/icon-Business-mobile.svg" /></span>
-              <a href="shop.html">Boutique</a>
+              <span class="icon-nav-mobile"><img src="/dist/assets/icons/icon-Business-mobile.svg" /></span>
+              <a href="pages/shop.html">Boutique</a>
             </div>
             <div class="line-black"></div>
             <div class="icons-nav-bottom-mobile">
-              <span id="icon-accessibility-mobile"><img src="icons/icon-accessibility.svg" alt="icon-accessibility"></span>
-              <span id="icon-love-mobile"><img src="icons/icon-love.svg" alt="icon-love"></span>
+              <span id="icon-accessibility-mobile"><img src="/dist/assets/icons/icon-accessibility.svg" alt="icon-accessibility"></span>
+              <span id="icon-love-mobile"><img src="/dist/assets/icons/icon-love.svg" alt="icon-love"></span>
             </div>
             <div class="footer-nav-mobile">
               <p>&copy Jeux Olympiques 2024</p>
@@ -78,10 +84,10 @@
           </div>
         </nav>
         <div class="logo-mobile">
-          <img src="image/logo-etat-1.webp" alt="Logo jeux olympiques">
+          <img src="/dist/assets/image/logo-etat-1.webp" alt="Logo jeux olympiques">
         </div>
         <div class="icon-shop-mobile">
-          <a href="shop.html#basket"><img class="icon-shop" src="/icons/icon-basket.svg" alt="logo panier"></a>
+          <a href="/pages/shop.html#basket"><img class="icon-shop" src="/dist/assets/icons/icon-basket.svg" alt="logo panier"></a>
         </div>
       </div>
     </div>
@@ -89,13 +95,13 @@
     <div class="header-menu-desktop">
       <div class="container-logo-move">
         <div class="box-logo">
-          <img class="logo-JO" src="image/logo-etat-1.webp" />
+          <img class="logo-JO" src="/dist/assets/image/logo-etat-1.webp" />
           <div class="anneaux">
-            <img class="ellipse" src="image/Ellipse 1.svg">
-            <img class="ellipse" src="image/Ellipse 5.svg">
-            <img class="ellipse" src="image/Ellipse 4.svg">
-            <img class="ellipse" src="image/Ellipse 3.svg">
-            <img class="ellipse" src="image/Ellipse 2.svg">
+            <img class="ellipse" src="/dist/assets/image/Ellipse 1.svg">
+            <img class="ellipse" src="/dist/assets/image/Ellipse 5.svg">
+            <img class="ellipse" src="/dist/assets/image/Ellipse 4.svg">
+            <img class="ellipse" src="/dist/assets/image/Ellipse 3.svg">
+            <img class="ellipse" src="/dist/assets/image/Ellipse 2.svg">
           </div>
         </div>
       </div>
@@ -104,85 +110,192 @@
           <div class="box-search-icons">
             <div class="search-bar">
               <div class="div-search"></div>
-              <div><img class="icon-search" src="icons/icon-search-svg.svg" /></div>
+              <div><img class="icon-search" src="/dist/assets/icons/icon-search-svg.svg" /></div>
             </div>
             <div class="box-icons">
               <div class="icons-top">
                 <div class="icon-top">
-                  <img src="icons/icon-user.svg" alt="User">
+                  <img src="/dist/assets/icons/icon-user.svg" alt="User">
                 </div>
                 <div class="icon-top">
-                  <img src="icons/icon-accessibility.svg" alt="Accessibility">
+                  <img src="/dist/assets/icons/icon-accessibility.svg" alt="Accessibility">
                 </div>
                 <div class="icon-top">
-                  <img src="icons/icon-love.svg" alt="Love">
+                  <img src="/dist/assets/icons/icon-love.svg" alt="Love">
                 </div>
                 <div class="icon-top">
-                  <img src="icons/icon-basket.svg" alt="Basket">
+                  <a href="/pages/shop.html#basket"><img class="icon-shop" src="/dist/assets/icons/icon-basket.svg" alt="logo panier"></a>
                 </div>
               </div>
             </div>
         </div>
         <ul class="nav-bar">
             <li class="nav-item">
-              <span class="icon-nav icon-home"><img src="icons/home.svg" /></span>
+              <span class="icon-nav icon-home"><img src="/dist/assets/icons/home.svg" /></span>
               <span class="text-wrapper"><a href="index.html#presentation">Accueil</a></span>
             </li>
             <li class="nav-item">
-              <span class="icon-nav icon-calendar"><img src="icons/calendar.svg" /></span>
+              <span class="icon-nav icon-calendar"><img src="/dist/assets/icons/calendar.svg" /></span>
               <span class="text-wrapper"><a href="index.html#calendar">Calendrier</a></span>
             </li>
             <li class="nav-item">
-              <span class="icon-nav icon-medal"><img src="icons/medal.svg" /></span>
+              <span class="icon-nav icon-medal"><img src="/dist/assets/icons/medal.svg" /></span>
               <span class="text-wrapper"><a href="index.html#medal">Médailles</a></span>
             </li>
             <li class="nav-item">
-              <span class="icon-nav icon-good-mement"><img src="icons/good-moment.svg" /></span>
+              <span class="icon-nav icon-good-mement"><img src="/dist/assets/icons/good-moment.svg" /></span>
               <span class="text-wrapper"><a href="index.html#good-moment">Meilleurs moments</a></span>
             </li>
             <li class="nav-item">
-              <span class="icon-nav icon-paralympique"><img src="icons/paralympique.svg" /></span>
+              <span class="icon-nav icon-paralympique"><img src="/dist/assets/icons/paralympique.svg" /></span>
               <span class="text-wrapper"><a href="#jo-para">Paralympiques</a></span>
             </li>
         </ul>
         </div>
       </div>
     </div>
-
-    
   </header>
+
+  <!-- Popups : Conteneur des popups -->
+  <div id="popups-container" class="pops-container">
+    <!-- Popup Connexion -->
+    <div id="popup-Connection" class="popup">
+      <div class="form-group">
+        <h2>Connexion</h2>
+        <button class="close-btn">&times;</button>
+        <div class="popup-content">
+          <div class="connected">
+            <p>Vous êtes connecté.</p>
+            <button id="logout-btn" class="submit-btn">Se déconnecter</button>
+          </div>
+          <div class="disconnected">
+            <form class="form" id="auth-form" method="post">
+              <label for="email">Email</label>
+              <input type="text" id="email-connection" name="email" required>
+              <label for="password">Mot de passe</label>
+              <input type="password" id="password-connection" name="password" required>
+              <p class="mdp-forget"><a href="#">Mot de passe oublié ?</a></p>
+              <div class="checkbox">
+                <div class="remember-me">
+                  <input class="input-checkbox" type="checkbox" id="remember-me"/>
+                  <label for="remember-me">Se souvenir de moi</label>
+                </div>
+                <div class="subscribe">
+                  <input class="input-checkbox" type="checkbox" id="subscribeNews" name="subscribe" value="newsletter"/>
+                  <label for="subscribeNews">Souhaitez-vous vous abonner à la newsletter ?</label>
+                </div>
+              </div>
+              <button type="submit" class="submit-btn">Se connecter</button>
+            </form>
+            <div class="new-account">
+              <p class="link-new-account"><a href="#signup-form">Créer un compte</a></p>
+            </div>
+            <div class="social-login">
+              <div class="google-btn social-btn" onclick="handleGoogleLogin()">
+                <img src="/dist/assets/icons/btn-connection-google.png" alt="Connexion Google">
+              </div>
+              <div class="facebook-btn social-btn" onclick="handleFacebookLogin()">
+                <img src="/dist/assets/icons/btn-connection-facebook.png" alt="Connexion Facebook">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup Inscription -->
+    <div id="popup-inscription" class="popup">
+      <div class="form-group">
+        <h2>Formulaire d’inscription</h2>
+        <button class="close-btn">&times;</button>
+        <form class="form" id="signup-form" method="post">
+          <div class="form-div form-identity">
+            <input type="text" id="username" name="username" placeholder="Nom" required>
+            <input type="text" id="firstname" name="firstname" placeholder="Prénom" required>
+          </div>
+          <input type="date" id="date" name="date" placeholder="Date de naissance" required>
+          <div class="form-div form-contact">
+            <input type="text" id="email" name="email" placeholder="Email" required>
+            <input type="number" id="phonenumber" name="phonenumber" placeholder="N° de téléphone" required>
+          </div>
+          <div class="form-div form-address">
+            <input type="text" id="address" name="adresse" placeholder="Adresse" required>
+          </div>
+          <div class="form-div form-adress2">
+            <input type="number" id="postalcode" name="postalcode" placeholder="Code postale" required>
+            <input type="text" id="city" name="city" placeholder="Ville" required>
+          </div>
+          <div class="form-password">
+            <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+            <input type="password" id="confirmPassword" name="ConfirmPassword" placeholder="Confirmation du mot de passe" required>
+          </div>
+          <div class="form-checkbox">
+            <input class="input-form-checkbox" type="checkbox" id="terms" name="terms" required />
+            <label for="terms">J’accepte la Politique de confidentialité et confirme avoir plus de 16 ans.</label>
+          </div>
+          <button type="submit" class="submit-btn">S'inscrire</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Popup Accessibilité -->
+    <div id="popup-Accessibility" class="popup">
+      <div class="form-group">
+        <h2>Accessibilité</h2>
+        <button class="close-btn">&times;</button>
+        <ul>
+          <li><button onclick="increaseFontSize()">🔍 Augmenter la taille du texte</button></li>
+          <li><button onclick="decreaseFontSize()">🔎 Diminuer la taille du texte</button></li>
+          <li><button onclick="toggleContrast()">🌗 Mode contraste élevé</button></li>
+          <li><button onclick="toggleDyslexiaMode()">🧠 Mode Dyslexie</button></li>
+          <li><button onclick="toggleTextToSpeech()">🔊 Lecture vocale</button></li>
+          <li><button onclick="disableAnimations()">🌀 Désactiver les animations</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Popup Mes Favoris -->
+    <div id="popup-My-favorit" class="popup">
+      <div class="form-group">
+        <h2>Mes Favoris</h2>
+        <button class="close-btn">&times;</button>
+        <div id="favorites-list">Chargement...</div>
+      </div>
+    </div>
+  </div>
+
   <!--**********************   Main   **********************-->
   <main>
     <!-- hero-image-top -->
     <div class="carousel1" data-speed = "5000" data-transition ="700">
-      <button class="nav-left"><img src="/icons/circle-chevron-left-solid.svg" alt="chevron gauche"></button>
+      <button class="nav-left"><img src="/dist/assets/icons/circle-chevron-left-solid.svg" alt="chevron gauche"></button>
       <ul class="carousel-group1">
         <li class="carousel-hero">
           <h2 class="title-image"> 
             Venez vivre des moments forts avec les artistes !
           </h2>
-          <img class="image-hero-desktop" src="image/Celine-dion-Aya-nakamura.webp" alt="Celine-dion-Aya nakamura">
-          <img class="image-hero-mobile" src="image/Celine-dion.webp" alt="Celine-dion">
+          <img class="image-hero-desktop" src="/dist/assets/image/Celine-dion-Aya-nakamura.webp" alt="Celine-dion-Aya nakamura">
+          <img class="image-hero-mobile" src="/dist/assets/image/Celine-dion.webp" alt="Celine-dion">
         </li>
         <li class="carousel-hero">
           <h2 class="title-image">
             Venez vivre des moments forts avec les athlètes !
           </h2>
-          <img class="image-hero-desktop" src="image/cours-100m.webp" alt="course 100m">
-          <img class="image-hero-mobile" src="image/gym-usa.webp" alt="figure Gymnastique">
+          <img class="image-hero-desktop" src="/dist/assets/image/cours-100m.webp" alt="course 100m">
+          <img class="image-hero-mobile" src="/dist/assets/image/gym-usa.webp" alt="figure Gymnastique">
         </li>
         <li class="carousel-hero">
           <h2 class="title-image">Des nouvelles disciplines</h2>
-          <img class="image-hero-desktop" src="image/4-disciplines-nouvelle.webp" alt="4-disciplines-nouvelle">
-          <img class="image-hero-mobile" src="image/Break-dance.webp" alt="Break dance">
+          <img class="image-hero-desktop" src="/dist/assets/image/4-disciplines-nouvelle.webp" alt="4-disciplines-nouvelle">
+          <img class="image-hero-mobile" src="/dist/assets/image/Break-dance.webp" alt="Break dance">
         </li>
         <li class="carousel-hero">
           <h2 class="title-image">Venez encourager vos athlètes</h2>
-          <img class="image-hero-desktop" src="image/ntation-france.webp" alt="natation france">
-          <img class="image-hero-mobile" src="image/med-or-france.webp" alt="médailles or France">
+          <img class="image-hero-desktop" src="/dist/assets/image/ntation-france.webp" alt="natation france">
+          <img class="image-hero-mobile" src="/dist/assets/image/med-or-france.webp" alt="médailles or France">
         </li>
       </ul>
-      <button class="nav-right"><img src="/icons/circle-chevron-right-solid.svg" alt="chevron droite"></button>
+      <button class="nav-right"><img src="/dist/assets/icons/circle-chevron-right-solid.svg" alt="chevron droite"></button>
     </div>
 
     <!-- group-main-mobile first -->
@@ -192,52 +305,52 @@
         <div class="nav-sidebars">
           <div class="nav-sideBar  nav-sideBar-off" id="sideBarOff">
             <div class="header-menu-sidebar">
-              <img class="logo-olympique" src="image/logo-etat-2.webp" />
+              <img class="logo-olympique" src="/dist/assets/image/logo-etat-2.webp" />
               <div class="icons-sidebar">
-                <img class="icon-sidebar" src="icons/icon-home-mobile.svg" />
-                <img class="icon-sidebar" src="icons/icon-good-moment-sidebar.svg" />
-                <img class="icon-sidebar" src="icons/icon-medal-mobile.svg" />
-                <img class="icon-sidebar" src="icons/icone-calendar-mobile.svg" />
-                <img class="icon-sidebar" src="icons/icon-paralimpyque-side-bar.svg" />
-                <img class="icon-sidebar" src="icons/icon-Business-mobile.svg" />
+                <img class="icon-sidebar" src="/dist/assets/icons/icon-home-mobile.svg" />
+                <img class="icon-sidebar" src="/dist/assets/icons/icon-good-moment-sidebar.svg" />
+                <img class="icon-sidebar" src="/dist/assets/icons/icon-medal-mobile.svg" />
+                <img class="icon-sidebar" src="/dist/assets/icons/icone-calendar-mobile.svg" />
+                <img class="icon-sidebar" src="/dist/assets/icons/icon-paralimpyque-side-bar.svg" />
+                <img class="icon-sidebar" src="/dist/assets/icons/icon-Business-mobile.svg" />
               </div>
-              <img class="contact-sidebar" src="icons/icon-contact-sidebar.svg" />
+              <img class="contact-sidebar" src="/dist/assets/icons/icon-contact-sidebar.svg" />
             </div>
           </div>
           <div class="nav-sideBar nav-sideBar-on" id="sideBarOn">
             <div class="header-menu-sidebar">
-              <img class="logo-olympique" src="image/logo-etat-1.webp" />
+              <img class="logo-olympique" src="/dist/assets/image/logo-etat-1.webp" />
               <div class="icons-sidebar"> 
                 <div class="box-menu-sidebare home-sidebare">
-                  <img class="icon-sidebar" src="icons/icon-home-mobile.svg"/>
+                  <img class="icon-sidebar" src="/dist/assets/icons/icon-home-mobile.svg"/>
                   <div class="box-title"><a href="index.html#presentation">Accueil</a></div>
                 </div>
                 <div class="box-menu-sidebare good-moment-sidebare">
-                  <img class="icon-sidebar" src="icons/icon-good-moment-sidebar.svg"/>
+                  <img class="icon-sidebar" src="/dist/assets/icons/icon-good-moment-sidebar.svg"/>
                   <div class="box-title"><a href="index.html#good-moment">Meilleurs moments</a></div>
                 </div>
                 <div class="box-menu-sidebare medal-sidebare">
-                  <img class="icon-sidebar" src="icons/icon-medal-mobile.svg"/>
+                  <img class="icon-sidebar" src="/dist/assets/icons/icon-medal-mobile.svg"/>
                   <div class="box-title"><a href="index.html#medal">Médailles</a></div>
                 </div>
                 <div class="box-menu-sidebare calendar-sidebare">
-                  <img class="icon-sidebar"src="icons/icone-calendar-mobile.svg"/>
+                  <img class="icon-sidebar"src="/dist/assets/icons/icone-calendar-mobile.svg"/>
                   <div class="box-title"><a href="index.html#calendar">Calendrier</a></div>
                 </div>
                 <div class="box-menu-sidebare JOP-sidebare">
-                  <img class="icon-sidebar" src="icons/icon-paralimpyque-side-bar.svg"/>
+                  <img class="icon-sidebar" src="/dist/assets/icons/icon-paralimpyque-side-bar.svg"/>
                   <div class="box-title">Jeux paralympiques</div>
                 </div>
                 <div class="box-menu-sidebare shop-sidebare">
-                  <img class="icon-sidebar" src="icons/icon-Business-mobile.svg"/>
-                  <div class="box-title"><a href="shop.html#basket">Boutique</a></div>
+                  <img class="icon-sidebar" src="/dist/assets/icons/icon-Business-mobile.svg"/>
+                  <div class="box-title"><a href="/pages/shop.html#basket">Boutique</a></div>
                 </div>
               </div>
               <div class="login-sidebare">
-                <img class="icon-sidebar" src="icons/icon-contact-sidebar.svg"/>
+                <img class="icon-sidebar" src="/dist/assets/icons/icon-contact-sidebar.svg"/>
                 <div class="box-login">
-                  <button class="btn-up-white" id="login-sidebar">Se connecte |</button>
-                  <button class="btn-up-white" id="incription-sidebar"> S'inscrire</button>
+                  <button class="btn-up-white" id="login-sidebar">Se connecter |</button>
+                  <button class="btn-up-white" id="inscription-sidebar"> S'inscrire</button>
                 </div>
               </div>
             </div>
@@ -260,7 +373,7 @@
                 En somme, les Jeux Olympiques de Paris 2024 s'annoncent comme un événement marquant à la fois par son côté festif, inclusif, innovant et durable. Ils sont une occasion unique pour la France de mettre en lumière ses valeurs, sa culture et son rôle central sur la scène internationale tout en célébrant le sport dans toute sa diversité.
               </p>
             </div>
-            <img class="image-itinery" src="image/image-itineraire-olympique.webp" alt="itineraire-olympique">
+            <img class="image-itinery" src="/dist/assets/image/image-itineraire-olympique.webp" alt="itineraire-olympique">
             <h2 class="title-section title-section-1">Paris 2024 met le paquet ! </h2>
             <ol class="list-points">
               <h3> L’organisation des jeux Olympique de Paris met l’acces sur les points suivants :</h3>
@@ -305,7 +418,7 @@
           <div class="section section3">
             <h2 class="title-section title-section-3" id="calendar">Calendrier</h2>
             <div class="group-image-section3">
-              <img class="image-section3" src="image/basket-france.webp" alt="basket-france">
+              <img class="image-section3" src="/dist/assets/image/basket-france.webp" alt="basket-france">
               <button class="btn-shop">Accéder à la boutique</button>
             </div>
             <div class="container-btn-filters">
@@ -329,7 +442,7 @@
               </div>
             </div>
             <div class="table-tests">
-              <img src="image/tests-table.svg" alt="image-table-tests">
+              <img src="/dist/assets/image/tests-table.svg" alt="image-table-tests">
             </div>
           </div>
           <!-- Section 4 -->
@@ -339,12 +452,12 @@
               <div class="btn-image">
                 <div class="btn-filter btn-filter-countries sec4btn"></div>
                 <div class="image-btn">
-                  <img class="image-medals" src="image/medailles-olympiques-2024.webp" alt="medailles olympiques 2024">
-                  <button class="btn-shop">Accéder à la boutique</button>
+                  <img class="image-medals" src="/dist/assets/image/medailles-olympiques-2024.webp" alt="medailles olympiques 2024">
+                  <a href="/pages/shop.html#basket"><button class="btn-shop">Accéder à la boutique</button></a>
                 </div>
               </div>
               <div class="table-medals">
-              <img src="image/tableau-medails.png" alt="table-medals">
+              <img src="/dist/assets/image/tableau-medails.png" alt="table-medals">
               </div>
             </div>
           </div>
@@ -358,41 +471,41 @@
           <div class="section section5">
             <h2 class="title-section title-section-5">Quelques porteurs de la flamme Olympique</h2>
             <div class="carousel2" data-speed = "3000" data-transition ="700">
-              <button class="nav-left2"><img src="/icons/circle-chevron-left-solid.svg" alt="chevron gauche"></button>
+              <button class="nav-left2"><img src="/dist/assets/icons/circle-chevron-left-solid.svg" alt="chevron gauche"></button>
               <ul class="carousel-group2">
                 <li class="carousel-photo">
                   <h2 class="title-image-celbrity">Zinedin Zidane</h2>
-                  <img class="photo-celebrity" src="image/zidane.webp" alt="Zenedine zidane">
+                  <img class="photo-celebrity" src="/dist/assets/image/zidane.webp" alt="Zenedine zidane">
                 </li>
                 <li class="carousel-photo">
                   <h2 class="title-image-celbrity">Vaimalama Chaves</h2>
-                  <img class="photo-celebrity" src="image/vaimalama-chaves-miss-france-2019.webp" alt="vaimalama-chaves-miss-france-2019">
+                  <img class="photo-celebrity" src="/dist/assets/image/vaimalama-chaves-miss-france-2019.webp" alt="vaimalama-chaves-miss-france-2019">
                 </li>
                 <li class="carousel-photo">
                   <h2 class="title-image-celbrity">Ophelie Meunier</h2>
-                  <img class="photo-celebrity" src="image/Ophelie-meunier.webp" alt="Ophelie meunier">
+                  <img class="photo-celebrity" src="/dist/assets/image/Ophelie-meunier.webp" alt="Ophelie meunier">
                 </li>
                 <li class="carousel-photo">
                   <h2 class="title-image-celbrity">Thierry Marx</h2>
-                  <img class="photo-celebrity" src="image/thierry_marx_chef.webp" alt="thierry_marx">
+                  <img class="photo-celebrity" src="/dist/assets/image/thierry_marx_chef.webp" alt="thierry_marx">
                 </li>
                 <li class="carousel-photo">
                   <h2 class="title-image-celbrity">Jamel Debbouze</h2>
-                  <img class="photo-celebrity" src="image/Jamel-debbouze.webp" alt="Jamel debbouze">
+                  <img class="photo-celebrity" src="/dist/assets/image/Jamel-debbouze.webp" alt="Jamel debbouze">
                 </li>
                 <li class="carousel-photo">
                   <h2 class="title-image-celbrity">Yannick Noah</h2>
-                  <img class="photo-celebrity" src="image/Yannick-Noah.webp" alt="Yannick Noah">
+                  <img class="photo-celebrity" src="/dist/assets/image/Yannick-Noah.webp" alt="Yannick Noah">
                   </li>
               </ul>
-              <button class="nav-right2" ><img src="/icons/circle-chevron-right-solid.svg" alt="chevron droite"></button>
+              <button class="nav-right2" ><img src="/dist/assets/icons/circle-chevron-right-solid.svg" alt="chevron droite"></button>
             </div>
           </div>
         <div class="advense">
           <div class="title-advense">
             <span class="line-black"></span><h2>PARTENAIRES OFFICIELS</h2><span class="line-black"></span>
           </div>
-          <img class="image-advense" src="image/partenaires -jo.webp" alt="partenaires jo 2024">
+          <img class="image-advense" src="/dist/assets/image/partenaires -jo.webp" alt="partenaires jo 2024">
         </div>
         </div>
       </div>
@@ -401,10 +514,10 @@
   <!--*************  Footer  *************-->
   <footer class="container-footer">
     <div class ="icons">
-      <img class ="icon" src="/icons/Facebook.png" alt="logo Facebook">
-      <img class ="icon" src="/icons/Instagram.png" alt="logo Instagram">
-      <img class ="icon" src="/icons/X.png" alt="logo X">
-      <img class ="icon" src="/icons/Youtube.png" alt="logo Youtube">
+      <img class ="icon" src="/dist/assets/icons/Facebook.png" alt="logo Facebook">
+      <img class ="icon" src="/dist/assets/icons/Instagram.png" alt="logo Instagram">
+      <img class ="icon" src="/dist/assets/icons/X.png" alt="logo X">
+      <img class ="icon" src="/dist/assets/icons/Youtube.png" alt="logo Youtube">
     </div>
     <div class="rgpd">
       <a class ="rgpd-link" href="#">Conditions d'utilistations</a>
@@ -416,7 +529,6 @@
       <p>© 2024 Jeux olympiques de PARIS. Tous droits réservés.</p>
     </div>
   </footer>
-  <script src="animationBurgerMenu.js"></script>
 </body>
 
 </html>

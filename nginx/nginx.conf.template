@@ -1,5 +1,5 @@
-env ENVIRONMENT;
 env API_BASE_URL;
+env PORT;
 
 worker_processes auto;
 
@@ -12,7 +12,7 @@ http {
     default_type  application/octet-stream;
 
     server {
-        listen $PORT;
+        listen ${PORT};
         server_name localhost;
 
         # Dossier racine du frontend
@@ -35,13 +35,11 @@ http {
         }
 
         location / {
-            root /usr/share/nginx/html;
-            index index.html;
             try_files $uri $uri/ /index.html;
         }
 
         location /api/ {
-            proxy_pass $API_BASE_URL;
+            proxy_pass ${API_BASE_URL};
 
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
