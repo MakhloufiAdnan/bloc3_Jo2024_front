@@ -1,4 +1,4 @@
-// Base données pour les cartes de la section 2
+// Base de données pour les cartes de la section 2 (Fil d'actualité)
 const imageCardsNewsFeed = ["ceremonie-ouverture.jpg", "Football-OLY-2-visu-site-611x378.jpg", "mission-accueil-service.png", "Volontaires-JO-2024-768x580.jpg"];
 const textDataCardsNewsFeed = [
   { title: "Cérémonie d'ouverture des Jeux Olympiques de Paris 2024.", 
@@ -14,7 +14,7 @@ const textDataCardsNewsFeed = [
     paragraph: "Pour organiser les Jeux Olympiques et Paralympiques, Paris 2024 engagera entre 35 000 et 45 000 volontaires, à titre bénévole. Visages de Paris 2024 et de la France aux yeux du monde entier, les volontaires jouent un rôle essentiel dans le succès des Jeux. Présents pour faciliter l’expérience des athlètes, des spectateurs et de toutes les parties prenantes des Jeux sur l’ensemble des sites officiels en France (sites de compétition, villages des athlètes, aéroports…), les volontaires auront un rôle clé lors de ces Jeux." } 
 ];
 
-// Base données pour les cartes de la section 5
+// Base de données pour les cartes de la section 5 (Meilleurs moments / Porteurs de la flamme)
 const imageCardsNewsFeed2 = ["mascotte-JO.jpg", "carte-flamme-olympique.png"];
 const textDataCardsNewsFeed2 = [
   { title: "Les porteurs de la flamme olympique des JO de Paris.", 
@@ -24,88 +24,103 @@ const textDataCardsNewsFeed2 = [
     paragraph: "La torche, arrivée le 8 mai à Marseille, va parcourir 12 000 km sur tout le territoire national, dans l'Hexagone et en outre-mer, en faisant la part belle au patrimoine français. Des étapes aussi attendues que celles du Tour de France. Soixante-quatre départements vont voir passer le relais de la flamme olympique, qui a débarqué sur le sol français mercredi 8 mai à Marseille, après un voyage de dix jours depuis la Grèce à bord du voilier Belem. Le coup d'envoi d'un marathon de 79 jours jusqu'au début des Jeux de Paris, le 26 juillet, et l'allumage de la flamme au jardin des Tuileries par un dernier relayeur dont l'identité fait l'objet de toutes les spéculations. L'un des axes majeurs du parcours vise à mettre en valeur le patrimoine français, avec des passages dans des sites historiques emblématiques : la grotte de Lascaux (Dordogne), le Mont-Saint-Michel (Manche), les plages du Débarquement (plusieurs départements de Normandie), le Mémorial de Verdun (Meuse), le site archéologique d'Alésia (Côte-d'Or), les remparts de Carcassonne (Aude) et le château de Versailles (Yvelines) dans la dernière ligne droite. Les sites naturels ne sont pas en reste, avec un passage dans la vallée du Mont-Blanc (Haute-Savoie), au Pic du Midi ou encore dans les gorges du Verdon.Pour mettre l'accent sur les richesses du pays, la gastronomie sera également à l'honneur, avec un saut dans les vignobles les plus réputés (Saint-Emilion, Chablis, les Coteaux du Layon...), tout comme la culture (le Louvre-Lens, le musée de la BD d'Angoulême, le palais des Festivals à Cannes) et bien sûr le sport (Roland-Garros, le Stade de France, le stade Vélodrome ou le 'chaudron' de Geoffroy-Guichard à Saint-Etienne). En revanche, les deux seules autres villes françaises qui ont accueilli des Jeux (d'hiver), Grenoble et Albertville, ne sont pas concernées par ce relais de la flamme." }
 ];
 
-// Sélectionne l'élément parent des cartes
+// Attend que le DOM soit entièrement chargé avant d'exécuter le script.
 document.addEventListener("DOMContentLoaded", () => {
-  const cardsNewsFeed = document.querySelector(".cards-news-feed");
 
-  // Vérifie si l'élément parent principal existe avant de continuer
-  // Utile si ce script est chargé sur des pages qui n'ont pas toujours .cards-news-feed
-  // if (!cardsNewsFeed) {
-  //   // Vous pouvez choisir de ne rien faire ou de logger un avertissement si l'élément n'est pas sur la page.
-  //   // console.warn("Élément '.cards-news-feed' non trouvé sur cette page.");
-  //   // return; // Sortir si l'élément principal n'est pas nécessaire pour d'autres logiques dans ce fichier.
-  // }
-
-
+  // Fonction générique pour créer et ajouter des cartes d'actualités à un élément parent donné.
   function createCards(imageArray, textArray, parentElement) {
-    // S'assurer que parentElement existe avant de continuer
+    // Vérifie si l'élément parent fourni existe dans le DOM.
     if (!parentElement) {
-        console.error("Erreur : L'élément parent fourni à createCards est introuvable.");
-        return;
+      console.error("Erreur : L'élément parent fourni à createCards est introuvable dans le DOM.");
+      return; // Arrête l'exécution si le parent n'est pas trouvé.
     }
 
+    // Utilise un DocumentFragment pour optimiser les performances lors de l'ajout de plusieurs éléments au DOM.
     const fragment = document.createDocumentFragment();
 
+    // Boucle sur chaque source d'image pour créer une carte correspondante.
     imageArray.forEach((imageSrc, index) => {
+      // Vérifie s'il existe des données textuelles correspondantes pour l'image actuelle.
       if (!textArray[index]) {
-        console.warn(`Données textuelles manquantes pour l'image: ${imageSrc}`);
-        return;
+        console.warn(`Données textuelles manquantes pour l'image : ${imageSrc} à l'index ${index}. La carte ne sera pas créée.`);
+        return; // Passe à l'image suivante.
       }
 
+      // Crée l'élément principal de la carte.
       const card = document.createElement("div");
-      card.classList.add("section-display");
-      if (index % 2 === 0) card.classList.add("right-text-content");
+      card.classList.add("section-display"); // Classe de base pour la mise en page de la carte.
+      // Ajoute une classe pour alterner la position du texte (droite/gauche) si l'index est pair.
+      if (index % 2 === 0) {
+        card.classList.add("right-text-content");
+      }
 
-      const textContent = document.createElement("article");
-      textContent.classList.add("text-content-cards-feed");
+      // Crée l'élément <article> pour contenir le texte de la carte.
+      const textContentElement = document.createElement("article");
+      textContentElement.classList.add("text-content-cards-feed");
 
+      // Crée l'élément <img> pour l'illustration de la carte.
       const img = document.createElement("img");
-      // CHEMIN CORRIGÉ ICI :
       img.src = `/assets/image/${imageSrc}`; 
-      img.alt = textArray[index].title;
-      img.classList.add("illustration");
+      img.alt = textArray[index].title; // Texte alternatif descriptif pour l'image.
+      img.classList.add("illustration"); // Classe pour styler l'image.
+
+      // Gestionnaire d'erreur pour le chargement de l'image.
       img.onerror = () => {
-        console.error(`Image non trouvée: ${img.src}. Remplacement par image par défaut.`);
-        // CHEMIN CORRIGÉ ICI :
+        console.error(`Image non trouvée ou erreur de chargement pour : ${img.src}. Remplacement par une image par défaut.`);
         img.src = "/assets/image/default.jpg"; 
+        img.alt = "Image par défaut non disponible"; // Met à jour l'alt pour l'image de secours.
       };
 
+      // Crée l'élément <h2> pour le titre de la carte.
       const title = document.createElement("h2");
       title.textContent = textArray[index].title;
       title.classList.add("title-news-feed");
 
+      // Crée l'élément <p> pour le paragraphe de la carte.
       const paragraph = document.createElement("p");
       paragraph.textContent = textArray[index].paragraph;
       paragraph.classList.add("paragraph-news-feed");
 
-      textContent.appendChild(title);
-      textContent.appendChild(paragraph);
-      card.appendChild(textContent);
+      // Ajoute le titre et le paragraphe à l'élément <article>.
+      textContentElement.appendChild(title);
+      textContentElement.appendChild(paragraph);
+
+      // Ajoute l'article (texte) et l'image à la carte.
+      // L'ordre dépendra de la mise en page souhaitée (image avant ou après texte).
+      // Si 'right-text-content' met le texte à droite, l'image devrait être à gauche.
+      card.appendChild(textContentElement); // Ou img en premier si le texte est à droite par défaut
       card.appendChild(img);
+      
+      // Ajoute la carte complétée au DocumentFragment.
       fragment.appendChild(card);
     });
 
+    // Ajoute toutes les cartes (contenues dans le fragment) à l'élément parent dans le DOM.
     parentElement.appendChild(fragment);
   }
 
-  // Appliquer aux éléments .cards-news-feed.sec2 s'ils existent
-  const sec2Feed = document.querySelector(".cards-news-feed.sec2");
-  if (sec2Feed) {
-    createCards(imageCardsNewsFeed, textDataCardsNewsFeed, sec2Feed);
+  // Cible spécifiquement le conteneur pour la section 2.
+  const sec2FeedContainer = document.querySelector(".cards-news-feed.sec2");
+  if (sec2FeedContainer) {
+    createCards(imageCardsNewsFeed, textDataCardsNewsFeed, sec2FeedContainer);
     console.log("Cartes d'actualités pour la section 2 chargées.");
+  } else {
+    console.warn("Conteneur '.cards-news-feed.sec2' non trouvé. Aucune carte générée pour la section 2.");
   }
 
-  // Logique pour la section 5 (utilisation de setInterval pour attendre que .sec5 soit disponible)
-  // Ceci est utile si .sec5 est ajouté dynamiquement ou plus tard dans le chargement de la page.
-  const checkSection5 = setInterval(() => {
-    const sec5Feed = document.querySelector(".cards-news-feed.sec5"); // Cible plus spécifiquement
+  // Logique pour la section 5 : utilise setInterval pour vérifier périodiquement si l'élément .sec5 est disponible.
+  // Utile si .sec5 est ajouté au DOM plus tard par un autre script ou une action utilisateur.
+  const checkSection5Interval = setInterval(() => {
+    const sec5FeedContainer = document.querySelector(".cards-news-feed.sec5"); // Cible spécifiquement le conteneur de la section 5.
   
-    if (sec5Feed) {
-      createCards(imageCardsNewsFeed2, textDataCardsNewsFeed2, sec5Feed);
+    if (sec5FeedContainer) {
+      createCards(imageCardsNewsFeed2, textDataCardsNewsFeed2, sec5FeedContainer);
       console.log("Cartes d'actualités pour la section 5 chargées.");
-      clearInterval(checkSection5); // Arrête l'intervalle une fois trouvé et chargé
+      clearInterval(checkSection5Interval); // Arrête l'intervalle une fois que les cartes sont créées.
     }
-  }, 500); // Vérifie toutes les 500ms
+    // Si sec5FeedContainer n'est pas trouvé, l'intervalle continue de vérifier.
+    // Vous pourriez ajouter une condition pour arrêter l'intervalle après un certain temps pour éviter une boucle infinie.
+  }, 500); // Vérifie toutes les 500 millisecondes.
 });
 
-console.log("script componentCardsNewsFeed (ou similaire) chargé");
+console.log("Script componentCardsNewsFeed.js chargé (chemins corrigés, commentaires ajoutés).");

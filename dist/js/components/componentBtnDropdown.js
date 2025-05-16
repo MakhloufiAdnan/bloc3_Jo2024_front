@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     dropdownButton.className = "dropdown-button";
     const dropdownIcon = document.createElement("img");
     dropdownIcon.className = "dropdown-icon";
-    // CHEMIN CORRIGÉ ICI :
     dropdownIcon.src = "/assets/icons/btn-up-white.svg"; 
     dropdownIcon.alt = "Chevron";
 
