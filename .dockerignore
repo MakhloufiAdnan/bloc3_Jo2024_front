@@ -1,5 +1,27 @@
+# Fichiers et dossiers liés à Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
 
-build/
-*.log
-*.md
+# Fichiers liés à Git
 .git/
+.gitignore
+
+# Fichiers liés à l'IDE et au système d'exploitation
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+
+# Fichiers de build locaux (si vous en avez qui ne sont pas destinés à l'image)
+# build/
+# dist/ # Attention : ne pas ignorer 'dist' si vous avez besoin de copier son contenu source comme dans votre cas.
+        # Le Dockerfile actuel copie TOUT puis reconstruit ce qui est nécessaire.
+        # Si votre dossier 'dist' ne contient que des sources que vous utilisez dans le build, c'est OK.
+
+# Fichiers de déploiement ou spécifiques à Heroku (sauf si nécessaire dans l'image)
+# .profile
+# Procfile # Vous utilisez un container Heroku, donc pas besoin de Procfile ici.
+
+# Autres fichiers spécifiques à votre projet que vous ne voulez pas dans l'image
+# مثلا .env (les variables d'environnement doivent être gérées par Heroku config vars)
