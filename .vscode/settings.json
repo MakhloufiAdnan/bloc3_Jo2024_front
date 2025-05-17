@@ -1,0 +1,28 @@
+{
+  "files.autoSave": "afterDelay",
+  "git.autofetch": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+  "redhat.telemetry.enabled": true,
+  "liveSassCompile.settings.useNewCompiler": false, 
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded", // Style du CSS généré : "expanded" (lisible) ou "compressed" (minifié)
+      "extensionName": ".css", // Extension du fichier de sortie
+      "savePath": "/dist/css"  
+    }
+  ],
+  "liveSassCompile.settings.generateMap": true, // Pour générer les fichiers .css.map (utiles pour le débogage)
+  "liveSassCompile.settings.autoprefix": [ // Optionnel : pour ajouter automatiquement les préfixes vendeurs CSS
+    "> 1%",
+    "last 2 versions"
+  ],
+
+  // Vos paramètres pour liveServer.settings.mount devraient aussi être dans ce fichier :
+  "liveServer.settings.mount": [
+    ["/css", "./dist/css"],
+    ["/js", "./dist/js"],
+    ["/assets", "./dist/assets"],
+    ["/pages", "./dist/pages"]
+  ]
+}

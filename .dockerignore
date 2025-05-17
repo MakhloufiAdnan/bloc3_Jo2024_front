@@ -4,9 +4,6 @@ node_modules/
 .vscode/
 *.DS_Store
 Thumbs.db
-
-# Ignorer le dossier de cache local
 .cache/
-
-# Autres fichiers spécifiques à votre projet que vous ne voulez pas dans l'image
-# .env
+.env
+*.log
