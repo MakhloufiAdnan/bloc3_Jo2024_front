@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       img.onerror = () => {
         console.error(`Image non trouvée ou erreur de chargement pour : ${img.src}. Remplacement par une image par défaut.`);
         img.src = "/assets/image/default.jpg"; 
-        img.alt = "Image par défaut non disponible"; // Met à jour l'alt pour l'image de secours.
+        img.alt = "Image par défaut non disponible"; 
       };
 
       // Crée l'élément <h2> pour le titre de la carte.

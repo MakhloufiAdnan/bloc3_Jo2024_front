@@ -37,14 +37,13 @@ if (!cardsNews) {
 
     // Ajout de l'image
     const img = document.createElement("img");
-    // CHEMIN CORRIGÉ ICI :
     img.src = `/assets/image/${imageSrc}`; 
     img.alt = textDataCardsNews[index].title;
     img.classList.add("img-card-news");
     // Optionnel: ajouter une image de remplacement en cas d'erreur de chargement
     img.onerror = () => {
         console.error(`Image non trouvée: ${img.src}. Vérifiez le nom du fichier et le chemin.`);
-        img.src = "/assets/image/default-placeholder.jpg"; // Assurez-vous d'avoir une image placeholder à cet endroit
+        img.src = "/assets/image/default-placeholder.jpg"; 
         img.alt = "Image non disponible";
     };
     card.appendChild(img);
