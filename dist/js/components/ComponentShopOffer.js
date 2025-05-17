@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             <div class="test-medal">
               <div id="medal">
-                <img src="/dist/assets/icons/medal-gold.svg" alt="icon-medal">
+                <img src="/assets/icons/medal-gold.svg" alt="icon-medal">
               </div>
             </div>
           </div>

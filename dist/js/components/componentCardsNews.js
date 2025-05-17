@@ -36,7 +36,7 @@ if (!cardsNews) {
 
     // Ajout de l'image
     const img = document.createElement("img");
-    img.src = `/dist/assets/image/${imageSrc}`;
+    img.src = `/assets/image/${imageSrc}`;
     img.alt = textDataCardsNews[index].title;
     img.classList.add("img-card-news");
     card.appendChild(img);

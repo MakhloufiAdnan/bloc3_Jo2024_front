@@ -1,5 +1,5 @@
-import { isAuthenticated, logout } from '/dist/js/api/authUtils.js'; 
-import { getFavorites } from '/dist/js/pages/favoriteService.js';
+import { isAuthenticated, logout } from '/js/api/authUtils.js'; 
+import { getFavorites } from '/js/pages/favoriteService.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const popupMapping = {
