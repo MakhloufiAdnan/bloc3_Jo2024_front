@@ -103,12 +103,11 @@ async function handleSubmit(event) {
         }
         return showPopup("Vous devez accepter la politique de confidentialité.", "error");
     }
-    console.log("signup.js: Validations passées. Données prêtes à être envoyées :", data); 
-
+    console.log("signup.js: Validations passées. Données prêtes à être envoyées :", data);
     const backendData = {
         username: data.username,
         firstname: data.firstname,
-        date: data.date, 
+        date: data.date,
         email: data.email,
         phonenumber: data.phonenumber,
         streetnumber: parseInt(data.streetnumber, 10), 
@@ -133,7 +132,7 @@ async function handleSubmit(event) {
 
         const responseData = await response.json().catch((err) => {
             console.error("signup.js: Erreur lors du parsing JSON de la réponse :", err);
-            return { message: "Réponse inattendue du serveur." }; //
+            return { message: "Réponse inattendue du serveur." }; 
         }); 
 
         if (!response.ok) {
@@ -143,7 +142,7 @@ async function handleSubmit(event) {
 
         console.log("signup.js: Inscription réussie :", responseData); 
         showPopup("Inscription réussie ! Vous allez être redirigé vers la page d'accueil pour vous connecter.", "success");
-        setTimeout(() => { window.location.href = "/index.html"; }, 2500); 
+        setTimeout(() => { window.location.href = "/index.html"; }, 2500);
     } catch (err) {
         console.error("signup.js: Erreur dans le bloc try-catch de fetch :", err.message); 
         showPopup(err.message || "Une erreur est survenue lors de l'inscription.", "error");

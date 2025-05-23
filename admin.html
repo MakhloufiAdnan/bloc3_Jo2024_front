@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/js/pages/accessibility.js" defer></script>
-    <script type="module" src="/js/api/login.js" defer></script>
-    <script type="module" src="/js/api/authUtils.js" defer></script>
-    <script type="module" src="/js/api/signup.js" defer></script>
-    <!--*************  Links  *************--> 
+    <script type="module" src="/js/api/adminLogin.js" defer></script>
     <link rel="stylesheet" href="/css/main.css">
     <title>Admin-login</title>
 </head>
@@ -19,12 +16,14 @@
         </div>
         <div class="psw-admin">
             <p class="title-log">Compte Administrateur</p>
-            <form class="form-admin" action="/admin/login" method="post">
-                <input class="input-admin" type="password" name="password" placeholder="Mot de passe" id="password" required>
+            <form class="form-admin" id="admin-login-form"> <label for="admin-email">Email</label>
+                <input class="input-admin" type="email" name="email" placeholder="Email" id="admin-email" required>
+                <label for="admin-password">Mot de passe</label>
+                <input class="input-admin" type="password" name="password" placeholder="Mot de passe" id="admin-password" required>
                 <input class="submit-btn" type="submit" value="Connexion">
             </form>
             <div>
-                <p th:if="${error}" th:text="${error}" class="error-message"></p>
+                <p id="admin-error-message" class="error-message"></p>
             </div>
         </div>
     </main>
