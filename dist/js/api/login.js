@@ -1,5 +1,5 @@
 import { saveToken, isAuthenticated } from '/js/api/authUtils.js';
-import { showPopup, validateEmail, getCsrfToken } from '/js/api/formUtils.js';
+import { showPopup, validateEmail} from '/js/api/formUtils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById("auth-form");

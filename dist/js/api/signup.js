@@ -1,4 +1,4 @@
-import { showPopup, showError, validateEmail, getCsrfToken } from '/js/api/formUtils.js';
+import { showPopup, showError, validateEmail} from '/js/api/formUtils.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("signup-form");
