@@ -16,7 +16,7 @@ export function validateEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-export function getCsrfToken() {
+/*export function getCsrfToken() {
     const meta = document.querySelector('meta[name="csrf-token"]');
     return meta ? meta.content : null;
-}
+}*/ // désactivé //

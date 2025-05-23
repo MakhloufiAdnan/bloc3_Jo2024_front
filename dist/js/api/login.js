@@ -1,5 +1,5 @@
-import { saveToken, isAuthenticated } from '/dist/js/api/authUtils.js';
-import { showPopup, validateEmail, getCsrfToken } from '/dist/js/api/formUtils.js';
+import { saveToken, isAuthenticated } from '/js/api/authUtils.js';
+import { showPopup, validateEmail, getCsrfToken } from '/js/api/formUtils.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById("auth-form");
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: {
           "Content-Type": "application/json",
           "X-Requested-With": "XMLHttpRequest",
-          "X-CSRF-Token": getCsrfToken()
+          //"X-CSRF-Token": getCsrfToken() -> désactivé
         },
         body: JSON.stringify({ email, password })
       });

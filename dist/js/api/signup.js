@@ -1,4 +1,4 @@
-import { showPopup, showError, validateEmail, getCsrfToken } from '/dist/js/api/formUtils.js';
+import { showPopup, showError, validateEmail, getCsrfToken } from '/js/api/formUtils.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("signup-form");
@@ -36,7 +36,7 @@ async function handleSubmit(event) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token": getCsrfToken()
+        //"X-CSRF-Token": getCsrfToken() -> désactivé
       },
       body: JSON.stringify(data)
     });
