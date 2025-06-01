@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de Compte</title>
+</head>
+<body>
+    <h1>Confirmation de Compte</h1>
+    <p id="message">Traitement de la confirmation...</p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+            const messageElement = document.getElementById('message');
+
+            if (token) {
+                messageElement.textContent = "Confirmation de votre compte avec le token : " + token + "...";
+                // Ici, vous ferez l'appel fetch à votre backend pour la confirmation
+                // Exemple (assurez-vous d'utiliser la bonne URL de votre backend) :
+                fetch(`http://localhost:8080/api/auth/confirm?token=${token}`)
+                    .then(response => response.text()) // Ou response.json() si votre backend renvoie du JSON
+                    .then(data => {
+                        messageElement.textContent = "Confirmation réussie : " + data;
+                        // Optionnel: rediriger l'utilisateur après un court délai
+                        // setTimeout(() => { window.location.href = "/login.html"; }, 3000);
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors de la confirmation:', error);
+                        messageElement.textContent = "Erreur lors de la confirmation de votre compte.";
+                    });
+            } else {
+                messageElement.textContent = "Token de confirmation manquant.";
+            }
+        });
+    </script>
+</body>
+</html>

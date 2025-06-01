@@ -18,11 +18,12 @@
     "last 2 versions"
   ],
 
-  // Vos paramètres pour liveServer.settings.mount devraient aussi être dans ce fichier :
+  // Paramètres pour liveServer :
   "liveServer.settings.mount": [
     ["/css", "./dist/css"],
     ["/js", "./dist/js"],
     ["/assets", "./dist/assets"],
     ["/pages", "./dist/pages"]
-  ]
+  ],
+  "liveServer.settings.port": 3000
 }
