@@ -12,16 +12,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         // Vérifier d'abord si l'utilisateur est authentifié
         if (typeof isAuthenticated !== 'function' || !isAuthenticated()) {
             console.warn("Graphique des ventes : Utilisateur non authentifié. Le graphique ne sera pas chargé.");
-            // Optionnel : Afficher un message à l'utilisateur sur la page, ou cacher le canvas
-            // sellChartCanvas.style.display = 'none';
-            // document.getElementById('chart-message-container').textContent = 'Veuillez vous connecter pour voir les statistiques.';
+            // Afficher un message à l'utilisateur sur la page, ou cacher le canvas
+            sellChartCanvas.style.display = 'none';
+            document.getElementById('chart-message-container').textContent = 'Veuillez vous connecter pour voir les statistiques.';
             return;
         }
 
         const token = typeof getToken === 'function' ? getToken() : null;
         if (!token) {
             console.warn("Graphique des ventes : Token JWT non trouvé. Le graphique ne sera pas chargé.");
-            // logout(); // Optionnel: déconnecter si le token est attendu mais absent
+            logout(); // déconnecter si le token est attendu mais absent
             return;
         }
 
@@ -33,25 +33,24 @@ document.addEventListener("DOMContentLoaded", async function () {
         try {
             // Appel au nouvel endpoint backend pour les ventes journalières par type
             const response = await fetch("/api/admin/stats/ventes-journalieres-par-type", {
-                method: "GET", // La méthode est GET par défaut, mais c'est bien de le spécifier
+                method: "GET", 
                 headers: headers
             });
 
             if (!response.ok) {
                 if (response.status === 401 || response.status === 403) {
                     console.error("Graphique des ventes : Accès non autorisé ou interdit (" + response.status + "). Le token est peut-être invalide ou expiré.");
-                    // Optionnel : Rediriger vers la page de connexion ou afficher un message
-                    // if (typeof logout === 'function') logout();
+                    // Rediriger vers la page de connexion ou afficher un message
+                    if (typeof logout === 'function') logout();
                 }
                 throw new Error(`Erreur HTTP ${response.status} lors de la récupération des données de ventes.`);
             }
 
             const salesDataFromBackend = await response.json(); // Doit être List<VenteParOffreDto>
-                                                                // Ex: [{date: "2024-05-01", nomOffre: "SOLO", nombreVentes: 10}, ...]
 
             if (!salesDataFromBackend || salesDataFromBackend.length === 0) {
                 console.info("Graphique des ventes : Aucune donnée de vente n'a été retournée par le backend.");
-                // Optionnel: Afficher un message "Aucune donnée disponible" sur le graphique
+                // Afficher un message "Aucune donnée disponible" sur le graphique
                 ctx.font = "16px Arial";
                 ctx.textAlign = "center";
                 ctx.fillText("Aucune donnée de vente disponible.", sellChartCanvas.width / 2, sellChartCanvas.height / 2);
@@ -69,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                         day: day, 
                         soloSales: 0,
                         duoSales: 0,
-                        familySales: 0 // Assurez-vous que "FAMILLE" est le nom exact de votre enum/string
+                        familySales: 0
                     };
                 }
 
@@ -78,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     salesByDay[day].soloSales += item.nombreVentes;
                 } else if (item.nomOffre === "DUO") {
                     salesByDay[day].duoSales += item.nombreVentes;
-                } else if (item.nomOffre === "FAMILLE") { // Ou le nom exact de votre enum, ex: "FAMILIALE"
+                } else if (item.nomOffre === "FAMILIALE") { 
                     salesByDay[day].familySales += item.nombreVentes;
                 }
             });
@@ -91,7 +90,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             });
 
             const labels = processedSalesData.map(sale => sale.day); 
-            const soloSales = processedSalesData.map(sale => sale.nombreVentes / 1000); // Convertir en milliers
+            const soloSales = processedSalesData.map(sale => sale.nombreVentes / 1000); 
             const duoSales = processedSalesData.map(sale => sale.duoSales / 1000);
             const familySales = processedSalesData.map(sale => sale.familySales / 1000);
 
@@ -103,21 +102,21 @@ document.addEventListener("DOMContentLoaded", async function () {
                         {
                             label: "Offre Solo (en milliers)",
                             data: soloSales,
-                            backgroundColor: "rgba(255, 99, 132, 0.5)", // Rose avec transparence
+                            backgroundColor: "rgba(255, 99, 132, 0.5)", 
                             borderColor: "rgb(255, 99, 132)",
                             borderWidth: 1
                         },
                         {
                             label: "Offre Duo (en milliers)",
                             data: duoSales,
-                            backgroundColor: "rgba(54, 162, 235, 0.5)", // Bleu avec transparence
+                            backgroundColor: "rgba(54, 162, 235, 0.5)",
                             borderColor: "rgb(54, 162, 235)",
                             borderWidth: 1
                         },
                         {
                             label: "Offre Famille (en milliers)",
                             data: familySales,
-                            backgroundColor: "rgba(255, 205, 86, 0.5)", // Jaune avec transparence
+                            backgroundColor: "rgba(255, 205, 86, 0.5)",
                             borderColor: "rgb(255, 205, 86)",
                             borderWidth: 1
                         }
@@ -125,7 +124,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false, // Permet au graphique de mieux s'adapter à la hauteur du conteneur
+                    maintainAspectRatio: false, 
                     scales: {
                         y: {
                             beginAtZero: true,
@@ -157,11 +156,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             console.error("Erreur lors du chargement ou du traitement des données pour le graphique :", error);
             // Afficher un message d'erreur sur le canvas
             if (sellChartCanvas && ctx) {
-                 ctx.clearRect(0, 0, sellChartCanvas.width, sellChartCanvas.height); // Efface le canvas
-                 ctx.font = "16px Arial";
-                 ctx.fillStyle = "red";
-                 ctx.textAlign = "center";
-                 ctx.fillText("Erreur de chargement des données du graphique.", sellChartCanvas.width / 2, sellChartCanvas.height / 2);
+                ctx.clearRect(0, 0, sellChartCanvas.width, sellChartCanvas.height); // Efface le canvas
+                ctx.font = "16px Arial";
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.fillText("Erreur de chargement des données du graphique.", sellChartCanvas.width / 2, sellChartCanvas.height / 2);
             }
         }
     }

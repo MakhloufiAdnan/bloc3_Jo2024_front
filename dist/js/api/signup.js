@@ -1,4 +1,5 @@
 import { showPopup, showError, validateEmail } from '/js/api/formUtils.js'; 
+import API_URL from './config.js';
 
 console.log("signup.js: Script chargé."); 
 
@@ -121,7 +122,7 @@ async function handleSubmit(event) {
 
     try {
         console.log("signup.js: Tentative d'appel fetch vers /api/auth/register avec les données :", backendData); 
-        const response = await fetch("http://localhost:8080/api/auth/register", {
+        const response = await fetch("http://${API_URL}/api/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
